@@ -6,22 +6,13 @@ Author Name
 :!table-caption:
 :page-pagination:
 
-image:logo.png[FT Logo SSG,60,float=right]
-Global Customs and Enterprise Network  
-Freight Trust Protocol negates the need to have a paper-based document: by achieving both a legal and technical solution to the issues of physicality and electronic uniqueness that is only achievable by the use of blockchain smart contracts, the Freight Trust Protocol enables the logistics networks of tomorrow, today.
+image:logo.png[Multirepo SSG,200,float=right]
+Global Customs and Enterprise Network
+Vis no velit audiam, sonet <<dependencies,praesent>> eum ne.
+*Prompta eripuit* nec ad.
+:doctype: book
 
-== The Supply Chain Ecosystem
-
-The *Enterprise Ecosystem*, enables the participation of large and small organizations (or individuals) in **creating value at a scale** beyond the possibilities of a single firm. In these ecosystems, participants co-create and interact in a way which would be impossible to manage in a traditional top down (industrial) manner. As a result of this massive collaboration effort and value creation, participants (including so-called customers) are bonded by a shared interest and purpose and they protect and contribute to the ecosystem as a “commons” that enables them. That is what we call our `Enterprise Service Bus` at a technical level.
-
-===== Key Features 
-* Lower transaction cost to drive evolution in markets
-* Look for fragmented markets as an opportunity to seek for efficiencies
-* Pass on to the customer the savings introduced by efficiencies
-* Innovate pricing thanks to marketplace mechanism and data
-* Build mechanisms that support suppliers of all size
-* Invest in creating a mechanism that brings the best to the top (i.e. rate of failure)
-* Invest in mechanisms for empowerment, augmenting workers potential
+== Freight Trust Omnibus Documentation
 
 === Rule Book
 
@@ -51,7 +42,7 @@ The *Enterprise Ecosystem*, enables the participation of large and small organiz
 |===
 
 
-[quote, ' The Dominant Design of Information Processing ' link:https://medium.com/freighttrust/the-dominant-design-of-information-processing-for-the-21st-century-9acdbc86ade7[Freight Trust Whitepaper]
+[quote, ' The Dominant Design of Information Processing ' https://medium.com/freighttrust/the-dominant-design-of-information-processing-for-the-21st-century-9acdbc86ade7[Freight Trust Whitepaper']
 ____
 An enterprise service bus (ESB) is a software architecture construct that enables communication among various applications. Instead of having to make each of your applications communicate directly with each other in all their various formats, each application simply communicates with the ESB, which handles transforming and routing the messages to their appropriate destinations.
 ____
@@ -62,7 +53,7 @@ ____
 
 [CAUTION]
 ====
-[#inline]#Documentation is being ported over - for reference see https://freight-chain.github.io/omnibus
+[#inline]#Documentation is being ported over - for reference see [freight-chain](https://freight-chain.github.io/omnibus)#
 ====
 
 [IMPORTANT]
@@ -70,12 +61,12 @@ ____
 $EDI Token Contract Address `0x79c5a1ae586322a07bfb60be36e1b31ce8c84a1e`
 ====
 
-== Introduction to EDI Messages
 
 [NOTE]
-===
-Overviwe of EDI Capabilities 
-===
+.Note
+====
+TradeDocs is compliant as of 2020-06 with at least the following: 3060-X12, 3070-X12, 4010-X12, and 5010-X12
+====
 
 .Default Supported, No Mapping Required
 |====
@@ -86,7 +77,6 @@ Overviwe of EDI Capabilities
 |214 |Shipment Status Message| Version 4010
 |997 |Functional Acknowledgement| N/A
 |====
-
 
 
 .Overview of EDI & Standards

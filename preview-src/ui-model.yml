@@ -1,66 +1,64 @@
 antoraVersion: '1.0.0'
 site:
   url: http://localhost:5252
-  title: Brand Docs
-  homeUrl: &home_url /xyz/5.2/index.html
+  title: Freight Trust & Clearing Omnibus
+  homeUrl: &home_url /index.html
   components:
-  - name: abc
-    title: Project ABC
-    url: '#'
+  - name: Open Service Broker
+    title: EDI Service Bus
+    url: /index.html
     versions:
     - &latest_version_abc
       url: '#' 
-      version: '1.1'
-      displayVersion: '1.1'
+      version: '3.0.1'
+      displayVersion: '3.0.1'
     - url: '#' 
-      version: '1.0'
-      displayVersion: '1.0'
+      version: '2.9.7'
+      displayVersion: '2.9.7'
+    - url: /rulebook/1-general.md.html
     latestVersion: *latest_version_abc
   - &component
-    name: xyz
-    title: Project XYZ
-    url: /xyz/6.0/index.html
+    name: Global Data Service Interchange
+    title: Omnibus 
+    url: /rulebook/legal-parity.md.html
     versions:
     - &latest_version_xyz
-      url: /xyz/6.0/index.html
-      version: '6.0'
-      displayVersion: '6.0'
+      url: https://github.com/freight-chain
+      version: '3.0.1'
+      displayVersion: '3.0.1'
     - &component_version
       url: '#' 
-      version: '5.2'
-      displayVersion: '5.2'
+      version: '3.0.1'
+      displayVersion: '3.0.1'
     - url: '#' 
-      version: '5.1'
-      displayVersion: '5.1'
-    - url: '#' 
-      version: '5.0'
-      displayVersion: '5.0'
+      version: '2.9.7'
+      displayVersion: '2.9.7'
     latestVersion: *latest_version_xyz
-  - name: 123
-    title: Project 123
-    url: '#'
+  - name: Global Trade
+    title: Customs Interface
+    url: /tradedocs.html
     versions:
     - &latest_version_123
-      url: '#' 
-      version: '2.2'
-      displayVersion: '2.2'
+      url: /tradedocs.html 
+      version: 'USA'
+      displayVersion: 'USA'
     - url: '#' 
-      version: '2.1'
-      displayVersion: '2.1'
+      version: 'CAD'
+      displayVersion: 'CA'
     - url: '#' 
-      version: '2.0'
-      displayVersion: '2.0'
+      version: 'JPY'
+      displayVersion: 'JPY'
     latestVersion: *latest_version_123
 page:
   url: *home_url
   home: true
-  title: Brand&#8217;s Hardware &amp; Software Requirements
+  title: Network to Networks
   component: *component
   componentVersion: *component_version
-  version: '5.2'
-  displayVersion: '5.2'
+  version: '3.0.1'
+  displayVersion: '3.0.1'
   module: ROOT
-  editUrl: http://example.com/project-xyz/blob/master/index.adoc
+  editUrl: http://github.com/freight-chain
   origin:
     private: false
   previous:
@@ -68,60 +66,48 @@ page:
     url: '#'
     urlType: 'internal'
   next:
-    content: Liber Recusabo
+    content: Open Service Broker
     url: '#'
     urlType: 'internal'
   breadcrumbs:
-  - content: Quickstart
+  - content: Rulebook
     url: '#'
     urlType: fragment
-  - content: Brand&#8217;s Hardware &amp; Software Requirements
-    url: /xyz/5.2/index.html
+  - content: Enterprise Service Bus
+    url: '#'
     urlType: internal
-  versions:
-  - version: '6.0'
-    displayVersion: '6.0'
-    url: '#'
-  - version: '5.2'
-    displayVersion: '5.2'
-    url: '#'
-  - version: '5.1'
-    displayVersion: '5.1'
-    url: '#'
-  - version: '5.0'
-    displayVersion: '5.0'
-    missing: true
-    url: '#'
   navigation:
   - root: true
-    content: Project XYZ
-    url: '#'
+    content: Rulebook
+    url: /rulebook/legal-parity.md.html
     urlType: fragment
     items:
-    - content: Quickstart
+  - content: General
+    url: /rulebook/1-general.md.html
+    urlType: fragment
+  - content: Governance
+    url: /rulebook/2-governance.md.html
+    urlType: fragment
+  - content: Network Participants 
+    url: /rulebook/3-network-clearing-participants.md.html
+    urlType: fragment
+  - content: Delivery & Settlement
+    url: /rulebook/4-delivery-and-settlement.md.html
+    urlType: fragment
+  - content: Obligations
+    url: /rulebook/5-obligations.md.html
+    urlType: fragment
+  - content: Suspension
+    url: /rulebook/6-suspension.md.html
+    urlType: fragment
+  - content: Reference
+    items:
+    - content: Bylaws
       url: '#'
       urlType: fragment
-      items:
-      - content: Brand&#8217;s Hardware &amp; Software Requirements
-        url: /xyz/5.2/index.html
-        urlType: internal
-      - content: Cu Solet
-        url: '/xyz/5.2/index.html#cu-solet'
-        urlType: internal
-      - content: English + 中文
-        url: '/xyz/5.2/index.html#english+中文'
-        urlType: internal
-    - content: Liber Recusabo
-      url: '#liber-recusabo'
+    - content: Case Law
+      url: '#'
       urlType: fragment
-    - content: Reference
-      items:
-      - content: Keyboard Shortcuts
-        url: '#'
-        urlType: fragment
-      - content: Importing and Exporting
-        url: '#'
-        urlType: fragment
-      - content: Some Code
-        url: '/xyz/5.2/index.html#some-code'
-        urlType: internal
+    - content: Jurisdictional Nuances
+      url: '#'
+      urlType: internal

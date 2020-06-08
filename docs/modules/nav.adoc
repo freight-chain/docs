@@ -4,4 +4,4 @@
 * xref:3-network-clearing-participants.md.adoc[Network Participants]
 * xref:4-delivery-and-settlement.md.adoc[Delivery & Settlement]
 * xref:5-obligations.md.adoc[Obligations]
-* xref:6-suspension.md.adoc[Suspension]
+* xref:6-suspension.md.adoc[Suspension]	

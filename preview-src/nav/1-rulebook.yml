@@ -1,0 +1,32 @@
+  - root: true
+    content: Rulebook
+    url: nav.adoc
+    urlType: fragment
+    items:
+    - content: Overview
+      url: '#'
+      urlType: fragment
+      items:
+      - content: EDI & Smart Contracts
+        url:  '#'
+        urlType: internal
+      - content: Enterprise Service Bus
+        url: '#'
+        urlType: internal
+      - content: 空気を読む
+        url: '#'
+        urlType: internal
+    - content: Hyperledger Besu
+      url: '#l'
+      urlType: fragment
+    - content: Reference
+      items:
+      - content: Developers
+        url: '#'
+        urlType: fragment
+      - content: Importing and Exporting
+        url: '#'
+        urlType: fragment
+      - content: Network Interface 
+        url: '#'
+        urlType: internal
