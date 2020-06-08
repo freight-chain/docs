@@ -1,0 +1,7 @@
+name: freight-trust-documentation
+title: Freight Trust & Clearing Omnibus
+version: 3.1.0
+start_page: ROOT:README.adoc
+nav:
+- modules/ROOT/nav.adoc
+- modules/ROOT/rulebook/rulebook.nav.adoc

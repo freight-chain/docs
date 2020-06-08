@@ -1,9 +1,0 @@
-{
-  "name": "freight-trust-omnibus",
-  "version": "0.0.1",
-  "description": "freight trust network documentation and whitepapers",
-  "main": "index.js",
-  "repository": "gitlab.com/fr8/omnibus",
-  "author": "FreightTrust and Clearing Corporation",
-  "license": "CC-NC-ND:2.5"
-}
