@@ -1,0 +1,13 @@
+site:
+  title: Omnibus
+  url: https://gitlab.com/fr8/omnibus
+  start_page: lib::index.adoc
+content:
+  sources:
+  - url: ./
+  - url: ./lib/rulebook
+    start_path: docs
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
