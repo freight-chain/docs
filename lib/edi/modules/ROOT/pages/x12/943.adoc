@@ -1,0 +1,716 @@
+= 943 Advance WR
+
+:idprefix:
+:idseparator: -
+:!example-caption:
+:!table-caption:
+:page-pagination:
+
+:doctype: book
+
+
+[width="100%",cols="9%,7%,37%,2%,8%,16%,21%",options="header",]
+|===
+|Seg |Ref |Description |M |Value |Mapped To |Notes
+|ST a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Transaction Set Identifier Code
+Transaction Set Control Number
+--
+
+|M M a|
+[verse]
+--
+"943"
+
+--
+
+|System control |segment
+|W06 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+--
+
+a|
+[verse]
+--
+Reporting Code
+Depositor Order Number
+Date
+Shipment Identification Number
+--
+
+|M O O O a|
+[verse]
+--
+"J"
+
+--
+
+a|
+[verse]
+--
+
+PO_NUMBER
+
+REFERENCE
+--
+
+a|
+=== |
+
+[verse]
+--
+
+--
+
+|N1 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+--
+
+a|
+[verse]
+--
+Entity Identifier Code
+Name
+Identification Code Qualifier
+Identification Code
+--
+
+|M C C C a|
+[verse]
+--
+"SF"
+
+"9"
+
+--
+
+a|
+[verse]
+--
+
+NAME
+
+ADDRESS
+--
+
+a|
+=== |
+
+[verse]
+--
+
+--
+
+|N3 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Address Information
+Address Information
+--
+
+|M O a|
+==== |
+
+a|
+[verse]
+--
+STREET
+STREET
+--
+
+a|
+==== |
+
+|N4 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+--
+
+a|
+[verse]
+--
+City Name
+State or Province Code
+Postal Code
+Country Code
+--
+
+|O O O O a|
+=== |
+
+[verse]
+--
+
+--
+
+a|
+[verse]
+--
+CITY
+STATE
+ZIP
+
+--
+
+a|
+=== |
+
+[verse]
+--
+
+--
+
+|N1 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+--
+
+a|
+[verse]
+--
+Entity Identifier Code
+Name
+Identification Code Qualifier
+Identification Code
+--
+
+|M C C C a|
+[verse]
+--
+"BT"
+
+--
+
+a|
+=== |
+
+[verse]
+--
+
+--
+
+a|
+=== |
+
+[verse]
+--
+
+--
+
+|N1 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+--
+
+a|
+[verse]
+--
+Entity Identifier Code
+Name
+Identification Code Qualifier
+Identification Code
+--
+
+|M C C C a|
+[verse]
+--
+"ST"
+
+--
+
+a|
+=== |
+
+[verse]
+--
+
+--
+
+a|
+=== |
+
+[verse]
+--
+
+--
+
+|N3 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Address Information
+Address Information
+--
+
+|M O a|
+==== |
+
+a|
+==== |
+
+a|
+==== |
+
+|N4 a|
+[verse]
+--
+-01
+-02
+-03
+--
+
+a|
+[verse]
+--
+City Name
+State or Province Code
+Postal Code
+--
+
+|O O O a|
+=== |
+
+a|
+=== |
+
+a|
+=== |
+
+|N9 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Reference Identification Qualif
+Reference Identification
+--
+
+|M C a|
+[verse]
+--
+"CA"
+
+--
+
+a|
+[verse]
+--
+
+REFERENCE
+--
+
+a|
+==== |
+
+|G62 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Date Qualifier
+Date
+--
+
+|C C a|
+[verse]
+--
+"10"
+
+--
+
+a|
+==== |
+
+a|
+==== |
+
+|G62 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Date Qualifier
+Date
+--
+
+|C C a|
+[verse]
+--
+"04"
+
+--
+
+a|
+==== |
+
+a|
+==== |
+
+|G62 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Date Qualifier
+Date
+--
+
+|C C a|
+[verse]
+--
+"02"
+
+--
+
+a|
+[verse]
+--
+
+DATE
+--
+
+a|
+==== |
+
+|NTE a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Note Reference Code
+Description
+--
+
+|O M a|
+==== |
+
+a|
+[verse]
+--
+
+INSTRUCTIONS
+--
+
+a|
+==== |
+
+|W27 a|
+[verse]
+--
+-01
+-02
+-03
+--
+
+a|
+[verse]
+--
+Transportation Method/Type Code
+Standard Carrier Alpha Code
+Routing
+--
+
+|M C C a|
+[verse]
+--
+"M"
+
+--
+
+a|
+[verse]
+--
+VEHICLE
+CARRIER
+VEHICLE
+--
+
+a|
+=== |
+
+|W04 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+-05
+-06
+-07
+--
+
+a|
+[verse]
+--
+Number of Units Shipped
+Unit or Basis for Measurement
+U.P.C. Case Code
+Product/Service ID Qualifier
+Product/Service ID
+Product/Service ID Qualifier
+Product/Service ID
+--
+
+|M M C C C C C a|
+=== |
+
+[verse]
+--
+"VN"
+
+"LT"
+
+--
+
+a|
+[verse]
+--
+QTY_PIECE
+
+PRODUCT
+
+CONTROL
+--
+
+a|
+=== |
+
+=== |
+
+[verse]
+--
+
+--
+
+|G69 a|
+[verse]
+--
+-01
+--
+
+a|
+[verse]
+--
+Free-form Description
+--
+
+|M a|
+[verse]
+--
+
+--
+
+a|
+[verse]
+--
+DESCRIPTION
+--
+
+a|
+[verse]
+--
+
+--
+
+|N9 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Reference Identification Qualif
+Reference Identification
+--
+
+|M C a|
+[verse]
+--
+"LT"
+
+--
+
+a|
+[verse]
+--
+
+CONTROL
+--
+
+a|
+==== |
+
+|W20 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+-05
+-06
+--
+
+a|
+[verse]
+--
+Pack
+Size
+Unit or Basis for Measurement
+Weight
+Weight Qualifier
+Weight Unit Code
+--
+
+|O C C C C C a|
+=== |
+
+[verse]
+--
+
+"A3"
+"L"
+--
+
+a|
+[verse]
+--
+FACT_STORE
+FACT_WEIGHT
+
+--
+
+a|
+=== |
+
+=== |
+
+|W03 a|
+[verse]
+--
+-01
+-02
+-03
+--
+
+a|
+[verse]
+--
+Number of Units Shipped
+Weight
+Unit or Basis for Measurement
+--
+
+|M O C a|
+==== |
+
+[verse]
+--
+"LB"
+--
+
+a|
+=== |
+
+a|
+=== |
+
+|SE a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Number of Included Segments
+Transaction Set Control Number
+--
+
+|M M a|
+==== |
+
+a|
+[verse]
+--
+System contro
+
+--
+
+|l segment
+|===
