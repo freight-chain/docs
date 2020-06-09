@@ -27,6 +27,7 @@
   },
   "private": true,
   "dependencies": {
+    "@antora/cli": "2.3",
     "core-js": "^3.6.5"
   },
   "devDependencies": {
