@@ -1,0 +1,19 @@
+= IBFT 1.0
+:description: Hyperledger Besu consensus protocols
+
+Besu nodes can participate (that is, submit transactions and receive blocks) in a Quorum https://github.com/ethereum/EIPs/issues/650[IBFT 1.0] network, but cannot be a validator.
+
+To connect to a Quorum IBFT 1.0 network:
+
+. In the Quorum IBFT 1.0 genesis file, update the consensus protocol specified in the `config` property from `istanbul` to `ibft`.
++
+[source,json]
+----
+     "config": {
+      ...
+      "ibft": {
+      ...
+     }
+----
+
+. When starting Besu, specify the IBFT 1.0 genesis file using the link:../../../Reference/CLI/CLI-Syntax.md#genesis-file[`--genesis-file`] option.

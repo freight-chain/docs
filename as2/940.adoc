@@ -1,0 +1,618 @@
+= 940 Ship Order
+
+:idprefix:
+:idseparator: -
+:!example-caption:
+:!table-caption:
+:page-pagination:
+
+:doctype: book
+
+== X12 940 Map Implementation Guide
+
+
+The following notes clarify the information requirements for the *940
+Warehouse Shipping Order* document. This document references the
+following parties: The warehouse, the account (the warehouse's
+customer), the customer of the account, the consignee (the ship-to
+address), and the freight payor (if freight is sent third-party pay).
+
+[width="100%",cols="9%,7%,37%,2%,8%,16%,21%",options="header",]
+|===
+|Seg |Ref |Description |M |Value |Mapped To |Notes
+|ST a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Transaction Set Identifier Code
+Transaction Set Control Number
+--
+
+|M M a|
+[verse]
+--
+"940"
+
+--
+
+a|
+=== |
+
+|
+|W05 a|
+[verse]
+--
+-01
+-02
+-03
+--
+
+a|
+[verse]
+--
+Order Status Code
+Depositor Order Number
+Purchase Order Number
+--
+
+|M M O a|
+[verse]
+--
+"N"
+
+--
+
+a|
+[verse]
+--
+ORDER_STATUS
+PO_NUMBER
+REFERENCE
+--
+
+a|
+[verse]
+--
+
+Account SO #
+Purchaser PO #
+--
+
+|N1 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+--
+
+a|
+[verse]
+--
+Entity Identifier Code
+Name
+Identification Code Qualifier
+Identification Code
+--
+
+|M C C C a|
+[verse]
+--
+"ST"
+
+"93"
+
+--
+
+a|
+[verse]
+--
+
+NAME
+
+ADDRESS
+--
+
+a|
+[verse]
+--
+
+Ship to name
+Originator assn'd
+Unique ID req'd
+--
+
+|N3 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Address Information
+Address Information
+--
+
+|M O | a|
+[verse]
+--
+STREET
+STREET
+--
+
+a|
+[verse]
+--
+Street line 1
+Street line 2
+--
+
+|N4 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+--
+
+a|
+[verse]
+--
+City Name
+State or Province Code
+Postal Code
+Country Code
+--
+
+|O O O O | a|
+[verse]
+--
+CITY
+STATE
+ZIP
+COUNTRY
+--
+
+a|
+[verse]
+--
+(Foreign blank)
+(Foreign blank)
+(Foreign blank)
+Foreign addr only
+--
+
+|N9 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Reference Identification Qualif
+Reference Identification
+--
+
+|M C a|
+[verse]
+--
+"BM"
+
+--
+
+a|
+[verse]
+--
+
+ROUTE
+--
+
+a|
+[verse]
+--
+Originator B/L #
+
+--
+
+|G61 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+--
+
+a|
+[verse]
+--
+Contact Function Code
+Name
+Communication Number Qualifier
+Communication Number
+--
+
+|C C C C a|
+[verse]
+--
+"RE"
+
+"AD"
+
+--
+
+a|
+[verse]
+--
+
+CONTACT
+
+PHONE
+--
+
+a|
+[verse]
+--
+Optional segment
+Ship-to contact
+Optional
+Ship-to phone
+--
+
+|G62 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Date Qualifier
+Date
+--
+
+|C C a|
+[verse]
+--
+"10"
+
+--
+
+a|
+[verse]
+--
+
+DATE_SHIP
+--
+
+a|
+[verse]
+--
+Required
+
+--
+
+|G62 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Date Qualifier
+Date
+--
+
+|C C a|
+[verse]
+--
+"02"
+
+--
+
+a|
+[verse]
+--
+
+DATE_DELIVER
+--
+
+a|
+[verse]
+--
+Optional
+
+--
+
+|NTE a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Note Reference Code
+Description
+--
+
+|O M a|
+[verse]
+--
+"WHI"
+
+--
+
+a|
+[verse]
+--
+
+INSTRUCTIONS
+--
+
+a|
+[verse]
+--
+WHI, BOL, or ORI
+Optional segment
+--
+
+|W66 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+-05
+-06
+-07
+-08
+-09
+-10
+--
+
+a|
+[verse]
+--
+Shipment Method of Payment
+Transportation Method/Type Code
+Pallet Exchange Code
+Unit Load Option Code
+Routing
+F.O.B. Point Code
+F.O.B. Point
+COD Method of Payment Code
+Amount
+Standard Carrier Alpha Code
+--
+
+|M M O O O O O C C O a|
+[verse]
+--
+"PP"
+"M"
+
+--
+
+a|
+[verse]
+--
+FREIGHT_PAY
+
+ROUTE
+
+CARRIER
+--
+
+a|
+[verse]
+--
+PP, CC, or TP
+(motor)
+
+Carrier name
+
+Carrier SCAC
+--
+
+|LX a|
+[verse]
+--
+-01
+--
+
+a|
+[verse]
+--
+Assigned Number
+--
+
+|M a|
+[verse]
+--
+"1"
+--
+
+a|
+[verse]
+--
+
+--
+
+a|
+[verse]
+--
+One segment/order
+--
+
+|W01 a|
+[verse]
+--
+-01
+-02
+-03
+-04
+-05
+-06
+-07
+--
+
+a|
+[verse]
+--
+Quantity Ordered
+Unit or Basis for Measurement
+U.P.C. Case Code
+Product/Service ID Qualifier
+Product/Service ID
+Product/Service ID Qualifier
+Product/Service ID
+--
+
+|M M C C C C C a|
+[verse]
+--
+
+"CA"
+
+"VN"
+
+"A3"
+
+--
+
+a|
+[verse]
+--
+QTY_ORDER
+UOM_ORDER
+
+STOCK_NO
+
+ALT_CODE
+--
+
+a|
+[verse]
+--
+Required
+Required
+
+Required
+Required
+UP, BP, CB ,etc.
+
+--
+
+|G69 a|
+[verse]
+--
+-01
+--
+
+a|
+[verse]
+--
+Free-form Description
+--
+
+|M | a|
+[verse]
+--
+DESCRIPTION
+--
+
+|
+|N9 a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Reference Identification Qualif
+Reference Identification
+--
+
+|M C a|
+[verse]
+--
+"LI"
+
+--
+
+a|
+[verse]
+--
+
+QTY_OPTION
+--
+
+a|
+[verse]
+--
+Order line # qual
+Order line #
+--
+
+|W76 a|
+[verse]
+--
+-01
+-02
+-03
+--
+
+a|
+[verse]
+--
+Quantity Ordered
+Weight
+Unit or Basis for Measurement
+--
+
+|M C C | a|
+==== |
+
+|
+|SE a|
+[verse]
+--
+-01
+-02
+--
+
+a|
+[verse]
+--
+Number of Included Segments
+Transaction Set Control Number
+--
+
+|M M | |System control |segment
+|===

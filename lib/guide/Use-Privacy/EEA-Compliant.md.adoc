@@ -1,0 +1,19 @@
+:doctype: book
+
+description: Hyperledger Besu JSON-RPC methods to use for EEA-compliant privacy
+// - END of page meta data
+
+= Using EEA-compliant Privacy
+
+When using Hyperledger Besu xref:../../Concepts/Privacy/Privacy-Groups.adoc[EEA-compliant privacy], the group of nodes specified by ``privateFrom``and `privateFor` form a privacy group and are given a unique  privacy group ID by Orion.
+
+Enable the link:../../Reference/API-Methods.md#eea-methods[`EEA` API methods] using the link:../../Reference/CLI/CLI-Syntax.md#rpc-http-api[`--rpc-http-api`]  or link:../../Reference/CLI/CLI-Syntax.md#rpc-ws-api[`--rpc-ws-api`] command line options.
+
+Specify `privateFor` when creating the signed transaction passed as an input parameter to link:../../Reference/API-Methods.md#eea_sendrawtransaction[`eea_sendRawTransaction`] to create an EEA-compliant private transaction.
+
+== Privacy Group Type
+
+Privacy groups created when specifying `privateFrom` and `privateFor` are identified as type `LEGACY`  when returned by link:../../Reference/API-Methods.md#priv_findprivacygroup[`priv_findPrivacyGroup`].
+
+!!!
+example     `json      {         "jsonrpc": "2.0",         "id": 1,         "result": [           {              "privacyGroupId": "68/Cq0mVjB8FbXDLE1tbDRAvD/srluIok137uFOaClM=",              "name": "legacy",              "description": "Privacy groups to support the creation of groups by privateFor and privateFrom",              "type": "LEGACY",              "members": [                 "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw=",                 "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk="              ]           }         ]     }    `

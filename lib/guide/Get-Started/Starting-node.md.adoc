@@ -1,0 +1,137 @@
+= Starting Hyperledger Besu
+:description: Starting Hyperledger Besu
+
+You can use Besu nodes for varying purposes, as described in the xref:../../index.adoc[Overview].
+Nodes can connect to the Ethereum MainNet, public testnets such as Ropsten, or private networks.
+
+== Prerequisites
+
+xref:Install-Binaries.adoc[Besu Installed]
+
+== Local block data
+
+When connecting to a network other than the network previously connected to, you must either delete the local block data or use the link:../../Reference/CLI/CLI-Syntax.md#data-path[`--data-path`] option to specify a different data directory.
+
+To delete the local block data, delete the `database` directory in the `besu/build/distribution/besu-<version>` directory.
+
+== Genesis configuration
+
+Besu specifies the genesis configuration, and sets the network ID and bootnodes when connecting to <<run-a-node-on-ethereum-mainnet,MainNet>>, <<run-a-node-on-goerli-testnet,Goerli>>, <<run-a-node-on-rinkeby-testnet,Rinkeby>>, and <<run-a-node-on-ropsten-testnet,Ropsten>>.
+
+When you specify link:../../Reference/CLI/CLI-Syntax.md#network[`--network=dev`], Besu uses the development mode genesis configuration with a fixed low difficulty.
+A node started with link:../../Reference/CLI/CLI-Syntax.md#network[`--network=dev`] has an empty bootnodes list by default.
+
+The genesis files defining the genesis configurations are in the https://github.com/hyperledger/besu/tree/master/config/src/main/resources[Besu source files].
+
+To define a genesis configuration, create a genesis file (for example, `genesis.json`) and specify the file using the link:../../Reference/CLI/CLI-Syntax.md#genesis-file[`--genesis-file`] option.
+
+== Confirm node is running
+
+If you started Besu with the link:../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled[`--rpc-http-enabled`] option, use https://curl.haxx.se/[cURL] to call xref:../../Reference/API-Methods.adoc[JSON-RPC API methods] to confirm the node is running.
+
+!!!example
+
+....
+* `eth_chainId` returns the chain ID of the network.
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' localhost:8545
+    ```
+
+* `eth_syncing` returns the starting, current, and highest block.
+
+    ```bash
+    curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' localhost:8545
+    ```
+
+    For example, after connecting to mainnet `eth_syncing` will return something similar to:
+
+    ```json
+    {
+      "jsonrpc" : "2.0",
+      "id" : 1,
+      "result" : {
+        "startingBlock" : "0x0",
+        "currentBlock" : "0x2d0",
+        "highestBlock" : "0x66c0"
+      }
+    }
+    ```
+....
+
+== Run a node for testing
+
+To run a node that mines blocks at a rate suitable for testing purposes:
+
+[source,bash]
+----
+besu --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73 --rpc-http-cors-origins="all" --host-whitelist="*" --rpc-ws-enabled --rpc-http-enabled --data-path=/tmp/tmpDatdir
+----
+
+Alternatively, use the following xref:../Configure/Using-Configuration-File.adoc[configuration file] on the command line to start a node with the same options as above:
+
+[source,toml]
+----
+network="dev"
+miner-enabled=true
+miner-coinbase="0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+rpc-http-cors-origins=["all"]
+host-whitelist=["*"]
+rpc-ws-enabled=true
+rpc-http-enabled=true
+data-path="/tmp/tmpdata-path"
+----
+
+== Run a node on ropsten testnet
+
+To run a node on Ropsten:
+
+[source,bash]
+----
+besu --network=ropsten
+----
+
+To run a node on Ropsten with the HTTP JSON-RPC service enabled and allow Remix to access the node:
+
+[source,bash]
+----
+besu  --network=ropsten --rpc-http-enabled --rpc-http-cors-origins "http://remix.ethereum.org"
+----
+
+== Run a node on rinkeby testnet
+
+To run a node on Rinkeby specifying a data directory:
+
+[source,bash]
+----
+besu --network=rinkeby --data-path=<path>/<rinkebydata-path>
+----
+
+Where `<path>` and `<rinkebydata-path>` are the path and directory to save the Rinkeby chain data to.
+
+== Run a node on goerli testnet
+
+To run a node on https://github.com/goerli/testnet[Goerli] specifying a data directory:
+
+[source,bash]
+----
+besu --network=goerli --data-path=<path>/<goerlidata-path>
+----
+
+Where `<path>` and `<goerlidata-path>` are the path and directory to save the Goerli chain data to.
+
+== Run a node on Ethereum MainNet
+
+To run a node on the Ethereum MainNet:
+
+[source,bash]
+----
+besu
+----
+
+To run a node on MainNet with the HTTP JSON-RPC service enabled and available for localhost only:
+
+[source,bash]
+----
+besu --rpc-http-enabled
+----

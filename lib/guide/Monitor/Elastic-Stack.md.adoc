@@ -1,0 +1,25 @@
+= Elastic Stack
+:description: Using Elastick Stack (ELK) with Hyperledger Besu
+
+Elastic Stack (also known as ELK) is a common open-source log management platform.
+
+https://github.com/PegaSysEng/besu-sample-networks[Besu Sample Networks] provides example implementations using Elastic Stack for log management.
+
+The https://github.com/PegaSysEng/besu-sample-networks/blob/master/filebeat/filebeat.yml[Filebeat configuration] ingests the logs and outputs them to Redis for storage.
+Redis provides a highly available mechanism enabling log storage by any of the Elastic Beats and pulled by Logstash as required.
+
+The https://github.com/PegaSysEng/besu-sample-networks/blob/master/logstash/pipeline/20_besu.conf[pipeline configuration] defines the JSON format used for Besu logs and automatically picks up any new log fields.
+
+!!!
+note     The pipeline configuration must match the your log format.
+If using the default, you can use     the https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html[grok plugin]     to extract the log fields.
+
+To see the Besu Sample Networks logs in Kibana:
+
+. xref:../../Tutorials/Examples/Private-Network-Example.adoc[Start the Besu Private Network Example], adding the `-e` parameter to the `run.sh` command.
+. Open the http://localhost:5601/app/kibana#/discover[`Kibana logs address`] listed by the sample networks `list.sh` script.
+The logs display in Kibana.
++
+image::../../images/KibanaQuickstart.png[Kibana]
+
+// Links

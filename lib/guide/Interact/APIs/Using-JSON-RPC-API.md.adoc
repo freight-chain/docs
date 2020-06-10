@@ -1,0 +1,130 @@
+= JSON-RPC over HTTP and WebSockets
+:description: How to access the Hyperledger Besu API using JSON-RPC
+
+To enable JSON-RPC over HTTP or WebSockets, use the link:../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled[`--rpc-http-enabled`] and link:../../../Reference/CLI/CLI-Syntax.md#rpc-ws-enabled[`--rpc-ws-enabled`] options.
+
+{!global/Postman.md!}
+
+== Geth console
+
+The geth console is a REPL (Read, Evaluate, & Print Loop) JavaScript console.
+Use JSON-RPC APIs supported by geth and Hyperledger Besu directly in the console.
+
+To use the geth console with Besu:
+
+. Start Besu with the link:../../../Reference/CLI/CLI-Syntax.md#rpc-http-enabled[`--rpc-http-enabled`] option.
+. Specify which APIs to enable using the link:../../../Reference/CLI/CLI-Syntax.md#rpc-http-api[`--rpc-http-api`] option.
+. Start the geth console specifying the JSON-RPC endpoint:
++
+[source,bash]
+----
+ geth attach http://localhost:8545
+----
+
+Use the geth console to call xref:../../../Reference/API-Methods.adoc[JSON-RPC API methods] that geth and Besu share.
+
+!!!
+example
+
+ ```bash
+ eth.syncing
+ ```
+
+== JSON-RPC authentication
+
+Besu disables xref:Authentication.adoc[Authentication] by default.
+
+== HTTP and WebSocket requests
+
+=== HTTP
+
+To make RPC requests over HTTP, you can use https://curl.haxx.se/download.html[`curl`].
+
+[source,bash]
+----
+curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":53}' <JSON-RPC-http-endpoint:port>
+----
+
+=== WebSockets
+
+To make RPC requests over WebSockets, you can use https://github.com/websockets/wscat[wscat], a Node.js based command-line tool.
+
+First connect to the WebSockets server using `wscat` (you only need to connect once per session):
+
+[source,bash]
+----
+wscat -c ws://<JSON-RPC-ws-endpoint:port>
+----
+
+After you establish a connection, the terminal displays a '>' prompt.
+Send individual requests as a JSON data package at each prompt:
+
+[source,bash]
+----
+{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":53}
+----
+
+!!!
+note
+
+ `wscat` does not support headers. [Authentication](Authentication.md) requires you to pass an
+ authentication token in the request header. To use authentication with WebSockets, you require
+ an app that supports headers.
+
+== Readiness and liveness endpoints
+
+Besu provides readiness and liveness endpoints to confirm the Besu node status.
+Both return a `200 OK` status when ready or live and a `503 Service Unavailable` status if not ready or live.
+
+By default, the readiness check requires a connected peer and the node to be within two blocks of the best known block.
+If you have link:../../../Reference/CLI/CLI-Syntax.md#p2p-enabled[disabled p2p communication], you do not need peers.
+A live node with p2p disabled is always ready.
+
+Use the query parameters `minPeers` and `maxBlocksBehind` to adjust the number of peers required and the number of blocks tolerance.
+
+```bash tab="Readiness Endpoint" http://+++<JSON-RPC-HTTP-endpoint:port>+++/readiness+++</JSON-RPC-HTTP-endpoint:port>+++
+
+----
+
+```bash tab="curl Request Example"
+curl -v 'http://localhost:8545/readiness'
+----
+
+```bash tab="Query Parameters Example" curl -v 'http://localhost:8545/readiness?minPeers=0&maxBlocksBehind=10'
+
+----
+
+The liveness check requires the JSON RPC server to be up.
+
+```bash tab="Liveness Endpoint"
+http://<JSON-RPC-HTTP-endpoint:port>/liveness
+----
+
+`+bash tab="curl Request Example" curl -v 'http://localhost:8545/liveness' +`
+
+== API methods enabled by default
+
+Besu enables the `ETH`, `NET`, and `WEB3` API methods by default.
+
+To enable the `ADMIN`, `CLIQUE`, `DEBUG`, `EEA`, `IBFT`, `MINER`, `PERM`, `PLUGINS`, `PRIV`, and `TXPOOL` API methods, use the link:../../../Reference/CLI/CLI-Syntax.md#rpc-http-api[`--rpc-http-api`] or link:../../../Reference/CLI/CLI-Syntax.md#rpc-ws-api[`--rpc-ws-api`] options.
+
+== Block parameter
+
+When you make requests that might have different results depending on the block accessed, the block parameter specifies the block.
+Methods such as link:../../../Reference/API-Methods.md#eth_gettransactionbyblocknumberandindex[`eth_getTransactionByBlockNumberAndIndex`] have a block parameter.
+
+The block parameter can have the following values:
+
+* `blockNumber` : `quantity` - The block number, specified in hexadecimal or decimal.
+0 represents the genesis block.
+* `earliest` : `tag` - The earliest (genesis) block.
+* `latest` : `tag` - The last block mined.
+* `pending` : `tag` - The last block mined plus pending transactions.
+Use only with link:../../../Reference/API-Methods.md#eth_gettransactioncount[eth_getTransactionCount].
+
+!!!
+note
+
+ If [synchronizing in FAST mode](../../../Reference/CLI/CLI-Syntax.md#sync-mode), most
+ historical world state data is unavailable. Any methods attempting to access unavailable world
+ state data return `null`.

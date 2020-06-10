@@ -1,0 +1,13 @@
+:doctype: book
+
+description: Alethio Lite Block Explorer And EthStats Lite Network Monitor overview
+// - END of page meta data
+
+= Alethio
+
+https://company.aleth.io/[Alethio] develops a set of tools, including https://aleth.io/[Block Explorer] and https://ethstats.io/[EthStats Network Monitor], which give a comprehensive view into the activity in a public or private Enterprise Ethereum network.
+The statistics are at the network level and the block, transaction, and account level.
+
+To use Block Explorer and EthStats for testing and private networks, run the the xref:../HowTo/Deploy/Lite-Block-Explorer.adoc[Lite Block Explorer] and xref:../HowTo/Deploy/Lite-Network-Monitor.adoc[EthStats Lite].
+
+For more information about the full versions of these products and other enterprise solutions, contact https://company.aleth.io/[Alethio] at link:mailto:contact@aleth.io[contact@aleth.io].

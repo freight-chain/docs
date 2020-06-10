@@ -1,0 +1,11 @@
+description: Creating and manage privacy groups with Hyperledger Besu
+// - END of page meta data
+
+Hyperledger Besu-extended privacy provides JSON-RPC API methods for creating and managing privacy groups:
+
+* link:../../Reference/API-Methods.md#priv_createprivacygroup[`priv_createPrivacyGroup`]
+* link:../../Reference/API-Methods.md#priv_findprivacygroup[`priv_findPrivacyGroup`]
+* link:../../Reference/API-Methods.md#priv_deleteprivacygroup[`priv_deletePrivacyGroup`]
+
+!!!
+tip     xref:../../Concepts/Privacy/Privacy-Groups.adoc[EEA-compliant privacy groups] can be found and deleted using      link:../../Reference/API-Methods.md#priv_findprivacygroup[`priv_findPrivacyGroup`]     and link:../../Reference/API-Methods.md#priv_deleteprivacygroup[`priv_deletePrivacyGroup`].

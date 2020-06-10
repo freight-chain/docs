@@ -1,0 +1,90 @@
+:doctype: book
+
+== A Unique Network Transport Infrastructure
+
+____
+Think of our Blockchain Network as a VAN or Value Added Network 
+
+Our VAN is based off of Hyperledger Besu, a Java Client that is EVM compliant, meaning it can connect to the main ethereum network or you can setup a "permissioned" network, which is what the Freight Trust Network is.
+We use the $EDI Token to establish a market-based price for our transaction pricing.
+If interested in our pricing mechanisms please read our  https://freight-chain.github.io/omnibus[omnibus documentation.]
+____
+
+=== Our Unique Value Proposition
+
+. We extrapolate 3 mathematical properties that legal contracts have.
+. We use these 3 mathematical properties to design "smart contract primitives"
+. These primitives are then mapped to existing EDI formats that companies use to communicate with each other.
+. These mappings enable the raw EDI transaction to then to become a smart contract.
+. Based on the mathematical properties (and some additional software), we can enable raw EDI transactions to become actual smart contracts, based on if the End User (by default it's just raw message), wants to be able to do something besides sending a raw EDI message in order to enable that functionality.
+. That is what makes our system unique in the sense we can take normal EDI transactions and enable existing business workflows to be leveraged into new functionality, without having to migrate to a new system or front end user interface.
+
+=== Protocol access via API
+
+*Raw EDI Transactions* Here is an API to interact with the "EDI Layer"/raw transaction protocol: https://app.swaggerhub.com/apis-docs/freight-chain/XEDI/2
+
+*Mapping Interface/Parser* Here is an API to interact with the mapped transactions from the EDI Layer:  https://app.swaggerhub.com/apis-docs/freight-chain/primitiveAPI/2
+
+=== Comparisons
+
+Here is our biggest competitor in the "normal edi message VAN space"https://www.kleinschmidt.com/ks
+
+Another competitor in the "normal edi message VAN space" https://www.livingstonintl.com/resource/paperless-billing-four-options-livingston-clients/
+
+We offer the same service, at a significant cost savings, plus additional functionality (if they want to).
+
+'''
+
+=== EDI Messages Priced as Ethereum (per kilobyte/gwei)
+
+|===
+| Yellow Paper | Gwei | EDI Transaction | Cost in gwei
+
+| GxdataZero
+| 4
+| Segments
+| unit256
+
+| GxdataNonZero
+| 6,800
+| Interchange
+| 1,136
+
+| GxminTransaction
+| 21,000
+| File Data
+| 77,248
+|===
+
+____
+Source: https://docs.google.com/spreadsheets/d/1IRohVEYMHVVyvWKMq46rBSGAof8olMa7bkq-kb78xsg/edit#gid=0
+____
+
+[discrete]
+===== Calculating Max Supply
+
+We then dervice a rough estimate of EDI messages sent per block by the following:
+
+*Genesis file* Gas limit:	0xa00000 gas limit per block (decimal): 10485760
+
+We then Calculate the EDI messages sent per block by using the template validation EDI file for 211 (bill of lading)
+
+EDI message (in bytes): 1,136 EDI Transaction cost: 77,248 $EDI tx's per block: 135.7415079
+
+Max Transcactions per year per 1 token: 428,358,824.8
+
+ 	   151,113,902
+ 	 + 428,358,825 Summation: 611,029,679
+
+Citations and Sources:  https://github.com/nsward/evm-opcodes http://gavwood.com/paper.pdf https://github.com/freight-chain/node/blob/master/genesis.json https://gist.github.com/sambacha/3bccb5af0dc834254df0935ba9cedb9c
+
+= Summary
+
+So existing companies are already using raw edi messages to communicate.
+Our value proposition is that we take these existing data they are already producing and become the actual "network transport layer" for them to connect to.
+By joining and using our network transport layer (i.e.
+our blockchain) they get the benefits of interacting with smart contracts and a distributed enterprise network that can provide the same assurances in relation to a service level agreement they would have with Klienschmidt, but at 1/10th the cost.
+
+== Contact
+
+https://www.freighttrust.com mailto:sam@freighttrust.com https://twitter.com/freighttrustnet https://freight.page.link/demo

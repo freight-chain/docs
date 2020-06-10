@@ -1,0 +1,97 @@
+= EDI Gateway
+
+The EDI Gateway performs the following functions:
+
+• define trading partner groups and trading partner locations • enable transactions for trading partners • provide location code conversion between trading partner location codes and codes used in Oracle Applications • provide general code conversion between trading partner codes or standard codes • define interface data files so that application data can interface with EDI translators • extract application data, format, and write to data files (outbound transactions) • import data or converted codes into application open interface tables so that application program interfaces (API) can validate and update Oracle application tables (inbound transactions)
+
+A common EDI implementation is via ASCII data files in a batch environment.
+Data from the sending application is extracted into an application data file.
+The application data file is received by the translation software which translates it into the an EDI standard both trading partners agree upon.
+Then the EDI data file is placed on a network for transmission to the receiving application.
+The receiving application's EDI translator receives the EDI data file from the network and begins the file processing in reverse sequence.
+The translator translates the EDI data file and creates an application data file meaningful to the receiving application.
+The receiving application receives the application data file for processing and imports the data into the application.
+
+Trading Partner Definition Used for both inbound and outbound transactions to define trading partner locations within a trading partner group.
+By defining a trading partner, you do the following: • enable EDI translations • establish a link to the location or business entity defined in the Oracle Applications
+
+• establish a link to the trading partner definition in the EDI translator.
+Code Conversion Definition Used for both inbound and outbound transactions to convert general codes between the sending and receiving systems.
+This can be used to convert Oracle Applications codes to EDI standard codes or user--defined codes.
+
+Flexfields Flexfields (attributes) are user--defined fields in the Oracle Applications.
+They are found in both inbound and outbound transactions.
+You have to modify the general EDI translator data maps or templates to use flexfields.
+
+The Oracle EDI Gateway product architecture consists of the following components for outbound transactions: Oracle Applications Concurrent Program Manager Used for outbound transactions to initiate data extraction programs that create interface data files that are passed to the EDI translator for processing the data into the desired EDI standard.
+Stored Procedures to Prevent Duplicate Extraction Used with outbound transactions to provide encapsulated application logic to record the EDI transaction in the Oracle application.
+For example, the Oracle Purchasing tables are updated to reflect the extraction of purchase order data.
+This prevents the same data from being extracted again.
+Transaction--specific Extension Tables Used with outbound transactions to temporarily store user--supplied data or data from a non--Oracle Applications source that is required by target EDI documents.
+See: Extensible EDI Gateway Architecture: page 9 -- 2.
+
+Transaction--specific Interface Tables Used with outbound transactions to temporarily store data extracted from the Oracle Applications, including converted codes and data copied from customized extension tables.
+Transaction--specific Database Views Used with outbound transactions to provide encapsulated data selection logic for the target EDI transaction.
+You enter selection criteria, using Standard Request Submission, to launch individual extract programs.
+Interface Tables Table Used with outbound transactions to store the starting record identifier of each section of the output file and to track which transaction--specific interface and extension tables are related.
+The data extract program uses this information to write the next sequential identifier at the beginning of each record in the data file.
+Interface Columns Table Used with outbound transactions to store the assigned location of each data element within the data file.
+The data extract program uses this information to write data to the correct position in the data file.
+Data Extract Programs Used with outbound transactions to create a standard ASCII data file format that can be mapped to any standard.
+The data file contains data from Oracle Applications, converted codes from EDI Gateway tables, and descriptive flexfields defined in both EDI Gateway and the Oracle applications.
+Extension Tables The EDI Gateway extension tables are used to hold outbound data from tables that are outside the Oracle application.
+These extension tables are installed with EDI Gateway.
+However, you must define and populate the table columns if you want to use these tables.
+Each transaction interface table has one extension table per interface table for the given transaction.
+The extension tables share the same base interface table name as the transaction with an "`_X`" suffix.
+For example, the primary interface table ECE_DSNO_ORDERS has the extension table ECE_DSNO_ORDERS_X.
+
+Industry--Specific Tables Some Oracle Applications have additional application tables for vertical industry solutions.
+These additional tables are detected in the EDI Gateway by reading system setup tables.
+If industry--specific tables are detected, their data, along with customer--defined extension table data, is copied to the EDI Gateway extension tables during the data extraction for outbound transactions.
+Note: EDI extension tables are not used with inbound transactions
+
+Product Components for Inbound Transactions The Oracle EDI Gateway product architecture consists of the following components for inbound transactions: Oracle Applications Concurrent Program Manager Used for inbound transactions to initiate data load programs that import interface data files from the EDI translator to EDI Gateway for processing into Oracle Applications.
+Data Load Programs Used with inbound transactions to load the Oracle Applications open interfaces from a standard ASCII data file.
+The data load program converts external codes in the file to internal codes found in the code conversion tables.
+The internal codes found in the code conversion tables or found in the internal fields as populated by the EDI translator are loaded into the application open interface tables.
+Oracle Applications Open Interface Used with inbound transactions.
+The application open interface consists of temporary interface tables and an application open interface API.
+The temporary interface tables are used to store the data loaded by the data load programs.
+The API is used to validate the data in the temporary interface tables and populate the Oracle Application tables.
+See: Running the Import Program for Inbound Transactions: page 6 -- 4.
+Error detection, reporting, correction, and recovery are addressed by the respective Oracle Applications.
+
+Trading Partners The term "`trading partner`" is used differently in the context of EDI translators than in the context of the EDI Gateway.
+For EDI translators, the purpose of trading partner data is to: • identify sending and receiving electronic mailbox addresses • identify the communication medium (such as network or direct connection) • enable specific transactions by trading partner For the Oracle EDI Gateway, the purpose of trading partner data is to: • cross--reference a particular address location in Oracle Applications to the location code defined for the trading partner for that address • link the EDI translator trading partner identifier to the EDI Gateway trading partner for the primary business address entity in the transaction • enable specific transactions for the EDI Gateway trading partner In the EDI Gateway, the trading partner is defined as any address in Oracle Applications.
+This allows the conversion of location codes between the sender's defined code in their application to the receiver's defined code in their Oracle Application and vice versa.
+The translator code definition in the EDI Gateway identifies the trading partner setup code as defined in the EDI translator.
+For example, assume the trading partner defined the address code as AL--012.
+However, the same physical address was defined as 1234 in Oracle Applications.
+Defining the trading partner location in the appropriate Oracle application ensures that the code AL--012 is returned in transactions.
+When defining trading partner data in the EDI Gateway, transactions must be enabled for the trading partner in order for data to be imported or extracted and written to the data file.
+
+Each trading partner is assigned a primary address to associate with the transaction, such as bill--to address for outbound invoices or ship--to address for inbound purchase orders.
+If a trading partner is both a customer and a supplier, Oracle recommends that you define the partner twice, once as a customer and once as a supplier.
+For each, enter a note in the trading partner description field to indicate whether it is the customer or supplier definition.
+You must define a trading partner header for every location code found in the transaction.
+For example, an outbound invoice may have a remit--to location and a ship--to location.
+Both locations must be defined as trading partners in the EDI Gateway to define the external location code to appear in transactions
+
+For outbound transactions, you extract data for the organization assigned to the current responsibility.
+So, if you intend to extract data from multiple organizations, you must do so from separate responsibilities.
+For inbound transactions, the EDI translator, another process, or the trading partner sending the data file must separate the transactions by organization before the EDI Gateway imports the data.
+In other words, each data file sent by a trading partner should contain only those transactions into the specific organization.
+If you intend to extract data from multiple organizations, you must switch to Transactions associated with other organizations will not successfully cross--reference the trading partner's location codes.
+The EDI Gateway associates the organization defined in the EDI Gateway responsibility with each primary trading partner location during the location cross reference.
+If the responsibility has organization A, but all the trading partner primary locations in the transactions are defined to organization B in the Oracle Application, the location codes cross reference process cannot find the location in the Oracle Application.
+
+The EDI Gateway code conversion function performs the general code conversion.
+During code conversion: • external data is converted to internal application data for inbound transactions • internal application data is converted to external data for the trading partner for outbound transactions.
+General code conversions for inbound and outbound transactions can be accommodated with the EDI Gateway or the EDI translator.
+You decide which application is the best for your environment, user responsibilities, and application access.
+Inbound transactions can cross--reference the data during the EDI Gateway processing.
+The inbound transaction files are not updated by the EDI Gateway with the internal codes, although they are defined on the data file record.
+The retrieved codes are loaded into the interface tables for the API without writing the codes to the data files.
+The EDI Gateway only uses the data defined as internal data for the application interface tables.
+Either the EDI Gateway or the EDI translator must determine the internal code given the external data found in the transaction.

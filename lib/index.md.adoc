@@ -1,0 +1,56 @@
+:doctype: book
+
+title: Freight Trust Omnibus Documentation description: Freight Trust Network
+// - END of page meta data
+
+= Freight Trust Omnibus Documentation
+
+Freight Trust Network and Platform is a logistics solution that provides legally and functionaly equivalent digital shipping documents like Bills of Lading and Warehouse Receipts.
+
+[discrete]
+=== RuleBook v.03.20202IE (in effect)
+
+|===
+| Section | Number
+
+| General
+| 100
+
+| Governance
+| 200
+
+| Network & Clearing Participants
+| 300
+
+| Delivery and Settlement
+| 400
+
+| Obligations
+| 500
+
+| Suspension
+| 600
+
+| Reserved
+| 700
+|===
+
+[discrete]
+=== link:/api-docs[API Docs]
+
+API Documentation reference +
+
+!!!
+warning "This is a copyrighted work"
+
+[discrete]
+=== Disclaimer & Copyright
+
+{blank} + This work is copyrighted under the https://creativecommons.org/licenses/by-nc-nd/2.5/[Creative Commons NC-ND 2.5] License  +  +
+
+*You are free to*: _Share & copy and redistribute the material in any medium or format_  +  + *Under the following terms*:  +  + _Attribution_: You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
++  + _Non-Commercial_: You may not use the material for commercial purposes.
++  + _No-Derivatives_: If you remix, transform, or build upon the material, you may not distribute the modified material.
++  + _No additional restrictions_: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
++  + If you are seeking a Commerical license you may contact us at: link:mailto:admin@freighttrust.com[admin@freighttrust.com]

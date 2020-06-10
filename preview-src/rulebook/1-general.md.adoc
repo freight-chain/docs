@@ -5,13 +5,7 @@
 :!table-caption:
 :page-pagination:
 
-`CC-BY-NC-ND-2.5`
-:doctype: book
-:section: 100
-:revision: 2020.06
-
-
-== Definitions.
+== Definitions
 
 [IMPORTANT]
 ===

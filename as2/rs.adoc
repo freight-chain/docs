@@ -1,0 +1,273 @@
+
+== Receive/Transmit
+
+PURPOSE.
+
+The Receive/Transmit Interchange submenu selection both receives and
+transmits documents with the EDI Provider during a single connection
+session.
+
+You must make one of the following three selections:
+
+Receive, then Transmit - Select Receive, then Transmit to receive
+waiting EDI Documents and transmit pending documents during a single
+connect session with the EDI Provider or Value Added Network.
+
+Receive Only - The Receive Only selection connects to the EDI Provider
+or Value Added Network (VAN) and downloads all documents waiting in the
+mailbox. Documents are validated and imported to the application during
+the receive process.
+
+Transmit Only - The Transmit Only selection connects to the EDI Provider
+or VAN and sends any pending EDI documents.
+
+Next, select the Connections, Partners, and transactions Sets to be used
+for receiving or transmitting. Documents can be sent or received in any
+desired subset. For example, you can receive for multiple partners over
+one connection, then transmit only 997 acknowledgements.
+
+PROCESS FLOW.
+
+When this option is chosen all records in the TRANSMITS file with status
+3 or above are selected and sorted for transmission. An operating system
+file is opened and the documents are written to the file in an EDI
+transmission stream. Records for documents which require acknowledgment
+are changed to status 5; other documents are changed to status 6. Status
+6 records are transferred from the TRANSMITS file to TRANSMIT_HISTORY.
+Status 5 records are transferred from TRANSMITS to APP_TRANSMITS pending
+acknowledgment.
+
+Then a connection is established with the EDI Provider. First any
+available mail to be received is downloaded from the VAN and saved in an
+operating system file. Then the operating system file of mail to be
+transmitted is uploaded to the EDI Provider. Statistics for the connect
+session are downloaded for appending to the statistics log. Then the
+connection is terminated.
+
+After disconnecting from the EDI Provider, the file of received mail is
+read and separated into EDI documents which are written to the RECEIVES
+file. Production documents are written with a status of 4, test
+documents are written with status 3. Documents which duplicate
+identifiers in the RECEIVE_HISTORY archive file are written with status
+0. (Status values are listed in Table 2.)
+
+If the trading partner has requested acknowledgments, the acknowledgment
+is prepared while saving the received documents. An Acknowledgment for
+each group of documents is written to file TRANSMITS. If the received
+document is an acknowledgment, each transaction referenced in the
+acknowledgment is updated in the TRANSMITS file. TRANSMITS records are
+archived in file TRANSMIT_HISTORY once they have been acknowledged.
+
+When the process is complete a message lists the number and type of
+documents which were received.
+
+RECEIVES FILE PROCESSING.
+
+Select Receive from the Interchange submenu to receive waiting documents
+from the EDI Provider.
+
+This process connects with the EDI Provider and downloads all available
+mail from the mailbox to an operating system file. Connection statistics
+are saved to be appended to the statistics log. The call terminates once
+the download is complete, and the operating system file is archived.
+
+Then the file is read and separated into EDI documents which are written
+to the RECEIVES file. Production documents are written with a status of
+4, test documents are written with status 3. Documents which duplicate
+identifiers in the RECEIVE_HISTORY archive file are written with status
+0. (Status values are listed in Table 2.)
+
+If the trading partner has requested acknowledgments, the acknowledgment
+is prepared while saving the received documents. An Acknowledgment for
+each group of documents is written to file TRANSMITS. If the received
+document is an acknowledgment, each transaction referenced in the
+acknowledgment is updated in the TRANSMITS file. TRANSMITS records are
+archived in file TRANSMIT_HISTORY once they have been acknowledged.
+
+When the process is complete a message lists the number and type of
+documents which were received.
+
+RECEIVES FILE PROCESSING.
+
+The processes which occur when a record is written to the RECEIVES file
+are listed in Table 1. (This listing is based on the customary file
+processing configuration for the program.)
+
+Table 1. RECEIVES file status values and processes.
+
+[width="100%",cols="12%,88%",options="header",]
+|===
+|Status |Processing
+a|
+____
+< 3
+____
+
+|the document is written to the file without processing
+a|
+____
+= 3
+____
+
+|the document is checked against EDI Standards for errors
+a|
+____
+=>4
+____
+
+|the document is imported (if an active Map is available)
+a|
+____
+= 6
+____
+
+|the document is written to RECEIVE_HISTORY, deleted from RECEIVES.
+|===
+
+Documents with status 3 or above are validated against EDI Standards.
+This validation process changes the status according to the following
+rules:
+
+Test documents (status 3) will remain at status 3 if no standards errors
+are found. Production documents (status 4) will change to test documents
+if an active map does not exist. Any standards errors will change the
+status to 1.
+
+Production documents with status 4 will change to status 1 if document
+or segment errors are found, to status 5 if element errors exist, or to
+status 2 if a map import error occurs. Otherwise the documents will
+change to status 6 as they are imported to the database. Therefore no
+record will ever remain in file RECEIVES with status 4.
+
+DOCUMENT STATUS.
+
+The above explanations show that the status has everything to do with
+how a document has been processed or will be processed. Table 2,
+following, describes all the possible status values for RECEIVES
+records.
+
+____
+Table 2. RECEIVES file record status values and explanations.
+____
+
+[width="100%",cols="12%,88%",options="header",]
+|===
+|Status |Explanation
+a|
+____
+0
+____
+
+|document identifier is duplicated in RECEIVES_HISTORY
+a|
+____
+1
+____
+
+|document rejected due to standards errors
+a|
+____
+2
+____
+
+|document rejected due to mapping errors during import
+a|
+____
+3
+____
+
+|test document which has passed standards validation
+a|
+____
+4
+____
+
+|production document in process of being written to RECEIVES
+a|
+____
+5
+____
+
+|production document accepted with errors and imported
+a|
+____
+6
+____
+
+|production document accepted and written to RECEIVES_HISTORY
+|===
+
+ERROR CORRECTION AND MANUAL PROCESSING.
+
+Documents which remain in the RECEIVES file after processing need to be
+handled in one of the following ways.
+
+[width="100%",cols="12%,88%",options="header",]
+|===
+|Status |What to do
+a|
+____
+0
+____
+
+|Duplicated documents should be deleted using the Delete Duplicates
+process. Alternatively, the duplicated document could be imported by
+changing its status to 4 and saving the record.
+
+a|
+____
+1
+____
+
+|Standards errors should be reviewed manually. If the text of the
+document is corrected by hand, then change the status to 3 or 4 to
+reprocess the record.
+
+a|
+____
+2
+____
+
+|Import map errors may require changes to the map. Then change the
+record status to 4 to import the document.
+
+a|
+____
+3
+____
+
+|Do one of the following with test records: either change the status 0
+and run the Delete Duplicates process, or change the status to 4 and
+import the document to the database.
+
+a|
+____
+5
+____
+
+|Status 5 errors should be reviewed. Then move the documents to
+RECEIVE_HISTORY by running the Archive Accepted process.
+|===
+
+'''''
+
+PURPOSE.
+
+Selecting Transmit from the Interchange submenu sends all pending
+documents to the EDI Provider, and from there to your trading partners.
+
+TRANSMITTING PROCESS.
+
+When this option is chosen all records in the TRANSMITS file with status
+3 or above are selected and sorted for transmission. An operating system
+file is opened and the documents are written to the file in an EDI
+transmission stream. Records for documents which require acknowledgment
+are changed to status 5; other documents are changed to status 6. Then
+status 6 records in the TRANSMITS file are copied to TRANSMIT_HISTORY
+and deleted from TRANSMITS. Status 5 records are archived in
+APP_TRANSMITS pending acknowledgment and deleted from TRANSMITS.
+
+After all pending records are processed, a call is placed to the EDI
+Provider or Value Added Network. The operating system file is uploaded,
+and session statistics are downloaded to be appended to the statistics
+log. The call is disconnected when the transfer is complete.

@@ -8,7 +8,7 @@ site:
     title: EDI Service Bus
     url: /index.html
     versions:
-    - &latest_version_abc
+    - &latest_version_omnibus
       url: '#' 
       version: '3.0.1'
       displayVersion: '3.0.1'
@@ -16,29 +16,29 @@ site:
       version: '2.9.7'
       displayVersion: '2.9.7'
     - url: /rulebook/1-general.md.html
-    latestVersion: *latest_version_abc
+    latestVersion: *latest_version_omnibus
   - &component
     name: Global Data Service Interchange
     title: Omnibus 
     url: /rulebook/legal-parity.md.html
     versions:
-    - &latest_version_xyz
+    - &latest_version_besu
       url: https://github.com/freight-chain
-      version: '3.0.1'
-      displayVersion: '3.0.1'
+      version: '1.4.5'
+      displayVersion: '1.4.5'
     - &component_version
       url: '#' 
-      version: '3.0.1'
-      displayVersion: '3.0.1'
+      version: '1.4.5'
+      displayVersion: '1.4.5'
     - url: '#' 
-      version: '2.9.7'
-      displayVersion: '2.9.7'
-    latestVersion: *latest_version_xyz
+      version: '2.0.7'
+      displayVersion: '2.0.7'
+    latestVersion: *latest_version_besu
   - name: Global Trade
     title: Customs Interface
     url: /tradedocs.html
     versions:
-    - &latest_version_123
+    - &latest_version_iso
       url: /tradedocs.html 
       version: 'USA'
       displayVersion: 'USA'
@@ -48,7 +48,7 @@ site:
     - url: '#' 
       version: 'JPY'
       displayVersion: 'JPY'
-    latestVersion: *latest_version_123
+    latestVersion: *latest_version_iso
 page:
   url: *home_url
   home: true
@@ -73,8 +73,8 @@ page:
   - content: Rulebook
     url: '#'
     urlType: fragment
-  - content: Enterprise Service Bus
-    url: '#'
+  - content: Electronic Data Interchange
+    url: /blockchain/explain-edi.md.html
     urlType: internal
   navigation:
   - root: true
@@ -111,3 +111,22 @@ page:
     - content: Jurisdictional Nuances
       url: '#'
       urlType: internal
+  - content: Enterprise Ethereum
+    url: /blockchain/vbsm.md.html
+    urlType: fragment
+    items:
+      - content: Token Overview
+        url: /blockchain/token-overview.md.html
+        urlType: fragment
+      - content: Token Mechanics
+        url: /blockchain/token-mechanics.md.html
+        urlType: fragment
+      - content: Token Utility 
+        url: /blockchain/pricing.md.html
+        urlType: fragment
+      - content: Token Staking
+        url: /blockchain/staking.md.html
+        urlType: fragment
+      - content: Network Upgrading
+        url: /blockchain/network-upgrade.md.html
+        urlType: fragment

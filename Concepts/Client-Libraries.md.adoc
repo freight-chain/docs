@@ -1,0 +1,20 @@
+:doctype: book
+
+description: Hyperledger Besu client libraries
+// - END of page meta data
+
+= Client libraries
+
+Dapps use client libraries, such as https://github.com/ethereum/web3.js/[web3.js], https://github.com/web3j/web3j[web3j], or https://github.com/ethereum/ethereumj[ethereumj], to forward JSON-RPC requests to Hyperledger Besu.
+Any client library implementing core Ethereum RPC methods works with Besu.
+
+Use the xref:../HowTo/Interact/Client-Libraries/eeajs.adoc[web3.js-eea library] with Besu for xref:../Concepts/Privacy/Privacy-Overview.adoc[privacy features].
+
+image::../images/Hyperledger-Besu-Client-Libraries.png[Client Libraries]
+
+Use client libraries to:
+
+* xref:../HowTo/Develop-Dapps/Use-web3js.adoc[Create signed transactions]
+* xref:../HowTo/Send-Transactions/Creating-Sending-Private-Transactions.adoc[Create and send private transactions].
+
+// Links

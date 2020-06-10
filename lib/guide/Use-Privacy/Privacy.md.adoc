@@ -1,0 +1,25 @@
+:doctype: book
+
+description: Hyperledger Besu-extended privacy
+// - END of page meta data
+
+= Using Hyperledger Besu-extended Privacy
+
+Hyperledger Besu provides an extended implementation of privacy by allowing a xref:../../Concepts/Privacy/Privacy-Groups.adoc[privacy group to be created for a set of participants].
+The privacy group ID  must be specified when sending private transactions.
+
+Using the link:../../Reference/CLI/CLI-Syntax.md#rpc-http-api[`--rpc-http-api`] or link:../../Reference/CLI/CLI-Syntax.md#rpc-ws-api[`--rpc-ws-api`] command line options enable:
+
+* link:../../Reference/API-Methods.md#eea-methods[`EEA` API methods]
+* link:../../Reference/API-Methods.md#priv-methods[`PRIV` API methods]
+
+Use link:../../Reference/API-Methods.md#priv_createprivacygroup[`priv_createPrivacyGroup`] to  create the privacy group containing the recipients of the private transaction.
+
+Specify `privacyGroupId` when creating the signed transaction passed as an input parameter to link:../../Reference/API-Methods.md#eea_sendrawtransaction[`eea_sendRawTransaction`] to create an EEA-compliant private transaction.
+
+== Privacy Group Type
+
+Privacy groups created using  link:../../Reference/API-Methods.md#priv_createprivacygroup[`priv_createPrivacyGroup`] are identified as type `BESU` when returned by link:../../Reference/API-Methods.md#priv_findprivacygroup[`priv_findPrivacyGroup`].
+
+!!!
+example      `json     {       "jsonrpc": "2.0",       "id": 1,       "result": [          {            "privacyGroupId": "GpK3ErNO0xF27T0sevgkJ3+4qk9Z+E3HtXYxcKIBKX8=",            "name": "Group B",            "description": "Description of Group B",            "type": "BESU",            "members": [              "negmDcN2P4ODpqn/6WkJ02zT/0w0bjhGpkZ8UP6vARk=",              "g59BmTeJIn7HIcnq8VQWgyh/pDbvbt2eyP0Ii60aDDw="            ]          }       ]     }    `

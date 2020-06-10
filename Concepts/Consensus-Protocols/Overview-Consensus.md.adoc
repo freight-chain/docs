@@ -1,0 +1,54 @@
+:doctype: book
+
+description: Besu consensus protocols
+// - END of page meta data
+
+= Consensus protocols
+
+Besu implements the following consensus protocols:
+
+* Ethash (Proof of Work)
+* xref:../../HowTo/Configure/Consensus-Protocols/Clique.adoc[Clique] (Proof of Authority)
+* xref:../../HowTo/Configure/Consensus-Protocols/IBFT.adoc[IBFT 2.0] (Proof of Authority)
+* xref:../../HowTo/Configure/Consensus-Protocols/QuorumIBFT.adoc[Quorum IBFT 1.0] (Proof of Authority).
+
+The `config` property in the genesis file specifies the consensus protocol for a chain.
+For example:
+
+```json tab="Ethash" {    "config": {     ...
+"ethash": {       ...
+}    },   ...
++ }
+
+----
+
+```json tab="Clique"
+{
+  "config": {
+   ...
+    "clique": {
+     ...
+   }
+  },
+  ...
+}
+----
+
+```json tab="IBFT 2.0"  {   "config": {    ...
+"ibft2": {      ...
+}   },   ...
+}
+
+----
+
+```json tab="IBFT 1.0"
+{
+  "config": {
+   ...
+    "ibft": {
+     ...
+   }
+  },
+  ...
+}
+----

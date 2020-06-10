@@ -1,0 +1,14 @@
+:doctype: book
+
+description: Configuring Besu at the network level compared to the node level
+// - END of page meta data
+
+= Network vs node configuration
+
+You can configure Besu at the network level and the node level.
+
+Specify network-wide settings in the xref:../Reference/Config-Items.adoc[genesis file].
+For example, include `evmStackSize` or specify the xref:Consensus-Protocols/Overview-Consensus.adoc[consensus mechanism].
+
+Specify node settings on the command line or in the xref:../HowTo/Configure/Using-Configuration-File.adoc[node configuration file].
+For example, enable xref:../Reference/API-Methods.adoc[JSON-RPC API methods] or specify the link:../Reference/CLI/CLI-Syntax.md#data-path[data directory] for the node.

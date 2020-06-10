@@ -1,0 +1,31 @@
+= UniversalABI
+
+== UniversalABI
+
+== setTarget - read
+
+|name |type |description |----|----|-------- ||bytes4| ||address| *Add Documentation for the method here*
+
+== getController - view
+
+_No parameters_ *Add Documentation for the method here*
+
+== getTarget - view
+
+|name |type |description |----|----|-------- ||bytes4| *Add Documentation for the method here*
+
+== changeController - read
+
+|name |type |description |----|----|-------- ||address| *Add Documentation for the method here*
+
+== getMaster - view
+
+_No parameters_ *Add Documentation for the method here*
+
+== pause - read
+
+_No parameters_ *Add Documentation for the method here*
+
+== changeMaster - read
+
+|name |type |description |----|----|-------- ||address| *Add Documentation for the method here*

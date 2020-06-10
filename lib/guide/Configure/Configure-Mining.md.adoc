@@ -1,0 +1,62 @@
+= Mining
+:description: Using Hyperledger Besu for PoW CPU mining
+
+== Configure CPU mining
+
+To enable CPU mining, start Hyperledger Besu with the following options:
+
+[source,bash]
+----
+besu --rpc-http-api=ETH,MINER --miner-enabled --miner-coinbase=<account>
+----
+
+Where `<account>` is the account you pay mining rewards to.
+For example, `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
+
+Start and stop mining using the link:../../Reference/API-Methods.md#miner_start[`miner_start`] and link:../../Reference/API-Methods.md#miner_stop[`miner_stop`] APIs.
+
+== Configure GPU mining
+
+Besu supports GPU mining, tested using https://github.com/ethereum-mining/ethminer[Ethminer] with the `stratum+tcp` scheme.
+
+To enable GPU mining, start Hyperledger Besu with the following options:
+
+[source,bash]
+----
+besu --rpc-http-api=ETH,MINER --miner-enabled --miner-stratum-enabled --miner-coinbase=<account>
+----
+
+Where `<account>` is the account you pay mining rewards to.
+For example, `fe3b557e8fb62b89f4916b721be55ceb828dbd73`.
+
+Optional command line options are:
+
+* link:../../Reference/CLI/CLI-Syntax.md#miner-stratum-host[`--miner-stratum-host`] to specify the host of the mining service.
+* link:../../Reference/CLI/CLI-Syntax.md#miner-stratum-port[`--miner-stratum-port`] to specify the port of the mining service.
+
+!!!
+note
+
+....
+Besu also supports the `getwork` scheme. Use the
+[`--miner-stratum-enabled`](../../Reference/CLI/CLI-Syntax.md#miner-stratum-enabled) option and
+[enable the `ETH` RPCs](../../Reference/CLI/CLI-Syntax.md#rpc-http-api).
+
+The `getwork` scheme is supported as the `http` scheme in certain mining software.
+....
+
+Start and stop mining using the link:../../Reference/API-Methods.md#miner_start[`miner_start`] and link:../../Reference/API-Methods.md#miner_stop[`miner_stop`] APIs.
+
+== Mining APIs
+
+The JSON-RPC API methods for mining are:
+
+* link:../../Reference/API-Methods.md#miner_start[`miner_start`] to start mining.
+* link:../../Reference/API-Methods.md#miner_stop[`miner_stop`] to stop mining.
+* link:../../Reference/API-Methods.md#eth_mining[`eth_mining`] to determine whether the client is actively mining new blocks.
+* link:../../Reference/API-Methods.md#eth_hashrate[`eth_hashrate`] to get the number of hashes per second with which the node is mining.
+Not supported for GPU mining.
+* link:../../Reference/API-Methods.md#eth_getwork[`eth_getWork`] to get the hash of the current block, the seed hash, and the target boundary condition.
+Only used when using the `getwork` scheme.
+* link:../../Reference/API-Methods.md#eth_submitwork[`eth_submitWork`] to submit the PoW solution.
+Only used when using the `getwork` scheme.
