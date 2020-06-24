@@ -1,5 +1,0 @@
-name: antora-ui-default
-title: Freight Trust & Clearing Omnibus
-version: [v3.0.1]
-nav:
-- modules/ROOT/rulebook/rulebook.nav.adoc

@@ -1,88 +1,25 @@
-= Freight Trust & Clearing
-Author Name
+= X12 Standards
 :idprefix:
 :idseparator: -
 :!example-caption:
 :!table-caption:
 :page-pagination:
 
+:doctype: book
 
 
-== The Supply Chain Ecosystem
+== ASC X12 Standards
 
-The *Enterprise Ecosystem*, enables the participation of large and small organizations (or individuals) in **creating value at a scale** beyond the possibilities of a single firm. In these ecosystems, participants co-create and interact in a way which would be impossible to manage in a traditional top down (industrial) manner. As a result of this massive collaboration effort and value creation, participants (including so-called customers) are bonded by a shared interest and purpose and they protect and contribute to the ecosystem as a “commons” that enables them.
-
-===== Key Features 
-* Lower transaction cost to drive evolution in markets
-* Look for fragmented markets as an opportunity to seek for efficiencies
-* Pass on to the customer the savings introduced by efficiencies
-* Innovate pricing thanks to marketplace mechanism and data
-* Build mechanisms that support suppliers of all size
-* Invest in creating a mechanism that brings the best to the top (i.e. rate of failure)
-* Invest in mechanisms for empowerment, augmenting workers potential
-
-=== Rule Book
-
-|===
-| Section | Number
-
-| General
-| 100
-
-| Governance
-| 200
-
-| Network & Clearing Participants
-| 300
-
-| Delivery and Settlement
-| 400
-
-| Obligations
-| 500
-
-| Suspension
-| 600
-
-| Reserved
-| 700
-|===
+The ASC X12 Electronic Document Interchange (EDI) standards are
+published by the Data Interchange Standards Association, Inc.
 
 
-[quote, ' The Dominant Design of Information Processing ' link:https://medium.com/freighttrust/the-dominant-design-of-information-processing-for-the-21st-century-9acdbc86ade7[Freight Trust Whitepaper]
-____
-An enterprise service bus (ESB) is a software architecture construct that enables communication among various applications. Instead of having to make each of your applications communicate directly with each other in all their various formats, each application simply communicates with the ESB, which handles transforming and routing the messages to their appropriate destinations.
-____
 
-[discrete]
-=== EDI Messages Priced in per kilobyte/gwei
-
-|===
-| Yellow Paper | Gwei | EDI Transaction | Cost in gwei
-
-| GxdataZero
-| 4
-| Segments
-| unit256
-
-| GxdataNonZero
-| 6,800
-| Interchange
-| 1,136
-
-| GxminTransaction
-| 21,000
-| File Data
-| 77,248
-|===
-
-
-[IMPORTANT]
+[NOTE]
+.Note
 ====
-$EDI Token Contract Address `0x79c5a1ae586322a07bfb60be36e1b31ce8c84a1e`
+TradeDocs is compliant as of 2020-06 with at least the following: 3060-X12, 3070-X12, 4010-X12, and 5010-X12
 ====
-
-== Introduction to EDI Messages
 
 .Default Supported, No Mapping Required
 |====
@@ -95,47 +32,43 @@ $EDI Token Contract Address `0x79c5a1ae586322a07bfb60be36e1b31ce8c84a1e`
 |====
 
 
-
 .Overview of EDI & Standards
 ==== Function of EDI
 
 Diffreent standards define the commonly used business transactions in a
-formal, structured manner called transaction sets. X12 standards differ from data exchange protocols, in that a protocol allows data to flow from one computer to another without regard to the structure or meaning of the exchange. 
+formal, structured manner called transaction sets. X12 standards differ from data exchange protocols, in that a protocol allows data to flow from one computer to another without regard to the structure or meaning of the exchange.
 
 
 ==== Character sets
 
 EDI consists of text data, and the text is restricted to using specific
-`ASCII` characters. A basic character set is defined for all exchanges,
+ASCII characters. A basic character set is defined for all exchanges,
 and this set may be extended with additional characters by mutual
-agreement of the trading partners. `Using any additional characters is discouraged
-if not prohibited.` For certain areas, such as `Japan`, `China`, and `Korea`, a special pipe is used. Please contact us for more information at link:mailto:sam@freighttrust.com[edi@freighttrust.com]
-
-
-[TIP]
-link:https://encoding.spec.whatwg.org/#legacy-single-byte-encodings[Resource on Legacy Byte Encodings]
+agreement of the trading partners. The characters described here are in
+universal use today, and `using any additional characters is discouraged
+if not prohibited.`
 
 === Basic characters
 
 ....
 Uppercase letters    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-Numeric digits       0 1 2 3 4 5 6 7 8 9 
-Special characters   ! " & ' ( ) * + , - . / : ; ? = 
-The space character 
+Numeric digits       0 1 2 3 4 5 6 7 8 9
+Special characters   ! " & ' ( ) * + , - . / : ; ? =
+The space character
 
-Control characters:  BEL HT  LF  VT  FF  CR  FS  GS  RS  US  NL 
-ASCII hex values:    07  09  0A  0B  0C  0D  1C  1D  1E  1F 
+Control characters:  BEL HT  LF  VT  FF  CR  FS  GS  RS  US  NL
+ASCII hex values:    07  09  0A  0B  0C  0D  1C  1D  1E  1F
 ....
 
 === Extended characters
 
 ....
-Lowercase letters    a b c d e f g h i j k l m n o p q r s t u v w x y z 
-Other special chars  % ~ @ [ ] _ { } \ | < > 
-National characters  # $  
+Lowercase letters    a b c d e f g h i j k l m n o p q r s t u v w x y z
+Other special chars  % ~ @ [ ] _ { } \ | < >
+National characters  # $
 
-Control characters:  SOH STX ETX EOT ENQ ACK DC1 DC2 DC3 DC4 NAK SYN ETB 
-ASCII hex values:    01  02  03  04  05  06  11  12  13  14  15  16  17 
+Control characters:  SOH STX ETX EOT ENQ ACK DC1 DC2 DC3 DC4 NAK SYN ETB
+ASCII hex values:    01  02  03  04  05  06  11  12  13  14  15  16  17
 ....
 
 === Delimiters
@@ -152,7 +85,7 @@ ASCII hex values:    01  02  03  04  05  06  11  12  13  14  15  16  17
 
 
 Elements and higher structures of the EDI transaction sets are
-distinguished by ```delimiters```. Three delimiter values may be used: two
+distinguished by ```delimiters``. Three delimiter values may be used: two
 levels of separators, for elements and sub-elements, and a terminator
 which indicates the end of a data segment. Delimiters are specified in
 the header of each interchange and shall not be used within a data
@@ -193,7 +126,7 @@ return/linefeed
 |[.title-ref]#<gs># a|
 [verse]
 --
-Unix backtick (`)
+Unix backtick (`)`
 [.title-ref]#60# hex, 96 dec
 --
 
@@ -208,7 +141,7 @@ a|
 [verse]
 --
 asterisk (*)
-tilde (~)
+tilde
 --
 
 |[.title-ref]#<us># a|
@@ -235,7 +168,7 @@ colon (:)
 |===
 
 
-EDI data is exchanged in different ways, but always comes down to `encoding`. 
+EDI data is exchanged in different ways, but always comes down to `encoding`.
 Specifically the `backtick` and `carat` symbols are not included in the EDI character set, and therefore are not present in data elements. Please see our section on `Codecs` for more information on the subject.
 
 
@@ -244,10 +177,10 @@ Specifically the `backtick` and `carat` symbols are not included in the EDI char
 The data element is the smallest named unit of information in the
 standard. Data elements are identified as either simple or component. A
 data element which occurs within a composite data structure is
-identified as a component data element. 
+identified as a component data element.
 
 A data element which is outside
-the boundaries of a composite structure is a simple data element. 
+the boundaries of a composite structure is a simple data element.
 `The distinction between simple and component elements is based on the
 placement of the element in the set and not on the attributes of the
 element`.
@@ -301,9 +234,9 @@ structure`. Each `component` referenced has a requirement and an ordinal
 sequence in the structure. In the actual data transmission omitted
 elements are indicated by including their `delimiters` to preserve this
 sequence, except for elements which are omitted at the end of the
-component data structure. 
+component data structure.
 
-1. component
+1.component
 2. component data structure
 3. composite data structure
 4. delimiter
@@ -327,15 +260,18 @@ is in position one.
 
 A detail table defines the sequence of simple data elements and
 composite data structures in a segment. Each unit referenced has a
-requirement and an ordinal sequence in the segment. 
+requirement and an ordinal sequence in the segment.
 
 [WARNING]
-===
+=====
 In the actual data
 transmission omitted elements are indicated by including their
 delimiters to preserve this sequence, except for elements which are
 omitted at the end of the segment.
-===
+
+`<!> Freight Trust Strictly Enforces which delimiters can be used`
+=====
+
 
 <<<
 == Transaction Sets
@@ -363,29 +299,36 @@ summary area. Each segment in a set has a requirement designator, a
 position in the set definition, and a maximum occurrence. An example set
 detail table is shown below:
 
+[width="99%", options="header"]
+|===
+|NA Pos |Seg |Segment Name |Req |MaxUse |Level |Repeat |Loop
+|1 0010 |ST |Transaction Set Header a|
+
+
+
+|===
+
 === Repeating
 
 Single data segments within a transaction set may repeat up to a
 specified maximum number of occurrences, as shown in the MaxUse column.
 The notation [.title-ref]#>1# is used to show that the number of repeats
 for a segment is unlimited. Groups of two or more related data segments
-may be repeated as a loop. 
+may be repeated as a loop.
 
 [IMPORTANT]
-===
 Loops may be either unbounded, or bounded by
 loop start `(LS)` and loop end `(LE)` segments.
-===
 
 === Unbounded loops
 
 The start of an unbounded loop is marked by the occurrence of the first
 segment of the loop. The beginning segment of an unbounded loop shall
 not appear anywhere else in a loop. `The requirement for a loop is
-implicitly the requirement of the loop's first segment`. 
+implicitly the requirement of the loop's first segment`.
 
 .Requirement Segment Designator
-==== Designators 
+==== Designators
 If the requirement designator for the first segment of a loop is mandatory,
 then the loop must appear at least once in the transaction set`. A loop
 may be repeated up to a specified maximum number of times. The notation
@@ -397,7 +340,12 @@ When `unbounded loops are nested within loops`, the `inner loop shall not
 start at the same position as any outer loop`. The inner loop shall not
 start with the same segment identifier as the start of any outer loop,
 nor may the inner loop contain a segment that is also the beginning
-segment of any outer loop in the same structure. 
+segment of any outer loop in the same structure.
+
+
+[TIP]
+The inner loop must end before or on the same segment as its immediate outer loop.
+
 
 === Bounded loops
 
@@ -406,6 +354,8 @@ except that bounded loops have no restriction on which segment begins
 the loop. For bounded loops, a unique loop identifier defined in the
 standard is used in the LS and LE segments to convey segment position or
 loop hierarchy, or both, within the transaction set.
+
+= Transmission & Exchange
 
 [#transmission]
 == Transmission Files
@@ -417,24 +367,33 @@ all addressed from a specific partner (as when sending).
 The Sender and Receiver Identifiers in the ISA header of an interchange
 address the interchange envelope between partners. Therefore a
 transmission is analogous to a mail delivery to or a mail pickup from a
-mailbox. 
+mailbox.
+
+[#diagram]
+==== Transmission Diagram
+The sequence of control segments making up a transmission is
+displayed in the following figure:
 
 
+
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│ ISA ─────────────────┐   ISA/IEA  Each interchange is bounded by an      │
+│     TA1 ───────────  │            ISA/IEA segment pair.                  │
+│     ... ───────────  │                                                   │
+│     GS  ──────────┐  │   TA1      Transmission Acknowledgment segments,  │
+│         ST  ───┐  │  │            if used, immediately follow the ISA.   │
+│             ...│  │  │                                                   │
+│         SE  ───┘  │  │   GS/GE    Each Functional Group of similar       │
+│         ... ────  │  │            transaction sets is bounded by a       │
+│     GE  ──────────┘  │            GS/GE segment pair.                    │
+│     ... ───────────  │                                                   │
+│ IEA ─────────────────┘   ST/SE    Each transaction set document starts   │
+│ ISA ─────────────────┐            with an ST and ends with an SE.        │
+│     ... ───────────  │                                                   │
+│ IEA ─────────────────┘            Each structure may repeat an arbitrary │
+│ ... ──────────────────            number of times in its position.       │
+└──────────────────────────────────────────────────────────────────────────┘
 
 ==== ASC X12 License
-Content of ASC X12 standards is proprietary, and FreightTrust and Clearing Corporation makes no claim over its copyright, and only provides this for educational purposes only. 
-
-
-[discrete]
-=== Disclaimer & Copyright
-
-This work is copyrighted under the https://creativecommons.org/licenses/by-nc-nd/2.5/[Creative Commons NC-ND 2.5] License   
-
-*You are free to*: Share & copy and redistribute the material in any medium or format, Under the following terms*:
-
-_Attribution_: You must give appropriate credit, provide a link to the license, and indicate if changes were made.  
-You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.  
-* _Non-Commercial_: You may not use the material for commercial purposes.  
-* _No-Derivatives_: If you remix, transform, or build upon the material, you may not distribute the modified material.  
-* _No additional restrictions_: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-If you are seeking a Commerical license you may contact us at: link:mailto:admin@freighttrust.com[admin@freighttrust.com]
+Content of ASC X12 standards is proprietary, and FreightTrust and Clearing Corporation makes no claim over its copyright, and only provides this for educational purposes only.
