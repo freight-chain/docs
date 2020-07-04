@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Freight Trust &amp; Clearing</title>
+<date>2020-06-24</date>
+<author>
+<personname>
+<firstname>Author</firstname>
+<surname>Name</surname>
+</personname>
+</author>
+<authorinitials>AN</authorinitials>
+</info>
+<section xml:id="the-supply-chain-ecosystem">
+<title>The Supply Chain Ecosystem</title>
+<simpara>The <emphasis role="strong">Enterprise Ecosystem</emphasis>, enables the participation of large and small organizations (or individuals) in <emphasis role="strong">creating value at a scale</emphasis> beyond the possibilities of a single firm. In these ecosystems, participants co-create and interact in a way which would be impossible to manage in a traditional top down (industrial) manner. As a result of this massive collaboration effort and value creation, participants (including so-called customers) are bonded by a shared interest and purpose and they protect and contribute to the ecosystem as a “commons” that enables them.</simpara>
+<section xml:id="key-features">
+<title>Key Features</title>
+<itemizedlist>
+<listitem>
+<simpara>Lower transaction cost to drive evolution in markets</simpara>
+</listitem>
+<listitem>
+<simpara>Look for fragmented markets as an opportunity to seek for efficiencies</simpara>
+</listitem>
+<listitem>
+<simpara>Pass on to the customer the savings introduced by efficiencies</simpara>
+</listitem>
+<listitem>
+<simpara>Innovate pricing thanks to marketplace mechanism and data</simpara>
+</listitem>
+<listitem>
+<simpara>Build mechanisms that support suppliers of all size</simpara>
+</listitem>
+<listitem>
+<simpara>Invest in creating a mechanism that brings the best to the top (i.e. rate of failure)</simpara>
+</listitem>
+<listitem>
+<simpara>Invest in mechanisms for empowerment, augmenting workers potential</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="rule-book">
+<title>Rule Book</title>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="50*"/>
+<colspec colname="col_2" colwidth="50*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Section</entry>
+<entry align="left" valign="top">Number</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>General</simpara></entry>
+<entry align="left" valign="top"><simpara>100</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Governance</simpara></entry>
+<entry align="left" valign="top"><simpara>200</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Network &amp; Clearing Participants</simpara></entry>
+<entry align="left" valign="top"><simpara>300</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Delivery and Settlement</simpara></entry>
+<entry align="left" valign="top"><simpara>400</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Obligations</simpara></entry>
+<entry align="left" valign="top"><simpara>500</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Suspension</simpara></entry>
+<entry align="left" valign="top"><simpara>600</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Reserved</simpara></entry>
+<entry align="left" valign="top"><simpara>700</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<blockquote>
+<attribution>
+ The Dominant Design of Information Processing 
+<citetitle>link:https://medium.com/freighttrust/the-dominant-design-of-information-processing-for-the-21st-century-9acdbc86ade7[Freight Trust Whitepaper</citetitle>
+</attribution>
+<simpara>An enterprise service bus (ESB) is a software architecture construct that enables communication among various applications. Instead of having to make each of your applications communicate directly with each other in all their various formats, each application simply communicates with the ESB, which handles transforming and routing the messages to their appropriate destinations.</simpara>
+</blockquote>
+<bridgehead xml:id="edi-messages-priced-in-per-kilobytegwei" renderas="sect2">EDI Messages Priced in per kilobyte/gwei</bridgehead>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="4">
+<colspec colname="col_1" colwidth="25*"/>
+<colspec colname="col_2" colwidth="25*"/>
+<colspec colname="col_3" colwidth="25*"/>
+<colspec colname="col_4" colwidth="25*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Yellow Paper</entry>
+<entry align="left" valign="top">Gwei</entry>
+<entry align="left" valign="top">EDI Transaction</entry>
+<entry align="left" valign="top">Cost in gwei</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>GxdataZero</simpara></entry>
+<entry align="left" valign="top"><simpara>4</simpara></entry>
+<entry align="left" valign="top"><simpara>Segments</simpara></entry>
+<entry align="left" valign="top"><simpara>unit256</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>GxdataNonZero</simpara></entry>
+<entry align="left" valign="top"><simpara>6,800</simpara></entry>
+<entry align="left" valign="top"><simpara>Interchange</simpara></entry>
+<entry align="left" valign="top"><simpara>1,136</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>GxminTransaction</simpara></entry>
+<entry align="left" valign="top"><simpara>21,000</simpara></entry>
+<entry align="left" valign="top"><simpara>File Data</simpara></entry>
+<entry align="left" valign="top"><simpara>77,248</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<important>
+<simpara>$EDI Token Contract Address <literal>0x79c5a1ae586322a07bfb60be36e1b31ce8c84a1e</literal></simpara>
+</important>
+</section>
+</section>
+<section xml:id="introduction-to-edi-messages">
+<title>Introduction to EDI Messages</title>
+<table frame="all" rowsep="1" colsep="1">
+<title>Default Supported, No Mapping Required</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33.3333*"/>
+<colspec colname="col_2" colwidth="33.3333*"/>
+<colspec colname="col_3" colwidth="33.3334*"/>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">EDI</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis role="strong">Description</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara><emphasis role="strong">Version</emphasis></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>204</simpara></entry>
+<entry align="left" valign="top"><simpara>Motor Carrier Shipment Information</simpara></entry>
+<entry align="left" valign="top"><simpara>Version 4010</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>210</simpara></entry>
+<entry align="left" valign="top"><simpara>Freight Details and Invoice</simpara></entry>
+<entry align="left" valign="top"><simpara>Version 4010</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>211</simpara></entry>
+<entry align="left" valign="top"><simpara>Motor Carrier Bill of Lading</simpara></entry>
+<entry align="left" valign="top"><simpara>Version 4010</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>214</simpara></entry>
+<entry align="left" valign="top"><simpara>Shipment Status Message</simpara></entry>
+<entry align="left" valign="top"><simpara>Version 4010</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>997</simpara></entry>
+<entry align="left" valign="top"><simpara>Functional Acknowledgement</simpara></entry>
+<entry align="left" valign="top"><simpara>N/A</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<section xml:id="function-of-edi">
+<title>Function of EDI</title>
+<formalpara>
+<title>Overview of EDI &amp; Standards</title>
+<para>Diffreent standards define the commonly used business transactions in a
+formal, structured manner called transaction sets. X12 standards differ from data exchange protocols, in that a protocol allows data to flow from one computer to another without regard to the structure or meaning of the exchange.</para>
+</formalpara>
+</section>
+<section xml:id="character-sets">
+<title>Character sets</title>
+<simpara>EDI consists of text data, and the text is restricted to using specific
+<literal>ASCII</literal> characters. A basic character set is defined for all exchanges,
+and this set may be extended with additional characters by mutual
+agreement of the trading partners. <literal>Using any additional characters is discouraged
+if not prohibited.</literal> For certain areas, such as <literal>Japan</literal>, <literal>China</literal>, and <literal>Korea</literal>, a special pipe is used. Please contact us for more information at <link xl:href="mailto:sam@freighttrust.com">edi@freighttrust.com</link></simpara>
+<tip>
+<simpara><link xl:href="https://encoding.spec.whatwg.org/#legacy-single-byte-encodings">Resource on Legacy Byte Encodings</link></simpara>
+</tip>
+</section>
+<section xml:id="basic-characters">
+<title>Basic characters</title>
+<literallayout class="monospaced">Uppercase letters    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+Numeric digits       0 1 2 3 4 5 6 7 8 9
+Special characters   ! " &amp; ' ( ) * + , - . / : ; ? =
+The space character
+
+Control characters:  BEL HT  LF  VT  FF  CR  FS  GS  RS  US  NL
+ASCII hex values:    07  09  0A  0B  0C  0D  1C  1D  1E  1F</literallayout>
+</section>
+<section xml:id="extended-characters">
+<title>Extended characters</title>
+<literallayout class="monospaced">Lowercase letters    a b c d e f g h i j k l m n o p q r s t u v w x y z
+Other special chars  % ~ @ [ ] _ { } \ | &lt; &gt;
+National characters  # $
+
+Control characters:  SOH STX ETX EOT ENQ ACK DC1 DC2 DC3 DC4 NAK SYN ETB
+ASCII hex values:    01  02  03  04  05  06  11  12  13  14  15  16  17</literallayout>
+</section>
+<section xml:id="delimiters">
+<title>Delimiters</title>
+<simpara><emphasis role="strong">Symbols representing delimiters</emphasis></simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<?dbhtml table-width="55%"?>
+<?dbfo table-width="55%"?>
+<?dblatex table-width="55%"?>
+<tgroup cols="2">
+<colspec colname="col_1" colwidth="58.4375*"/>
+<colspec colname="col_2" colwidth="175.3125*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Symbol</entry>
+<entry align="left" valign="top">Type of delimiter</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>&lt;tr&gt;</simpara></entry>
+<entry align="left" valign="top"><simpara>Segment terminator</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>&lt;gs&gt;</simpara></entry>
+<entry align="left" valign="top"><simpara>Data element separator</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>&lt;us&gt;</simpara></entry>
+<entry align="left" valign="top"><simpara>Component element separator</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<simpara>Elements and higher structures of the EDI transaction sets are
+distinguished by <literal><literal>delimiters</literal></literal>. Three delimiter values may be used: two
+levels of separators, for elements and sub-elements, and a terminator
+which indicates the end of a data segment. Delimiters are specified in
+the header of each interchange and shall not be used within a data
+element value elsewhere in the exchange. Actual characters used as
+delimiters are set within each exchange. Standards documentation
+indicates the use of a delimiter with symbols as shown in the sidebar.</simpara>
+<simpara>EDI standards do not impose requirements on delimiter choices other than
+to prohibit the use of a delimiter within a data element. Recommended
+delimiters are shown in the following table, along with values suggested
+in the standards and values in common use in industry:</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<?dbhtml table-width="99%"?>
+<?dbfo table-width="99%"?>
+<?dblatex table-width="99%"?>
+<tgroup cols="4">
+<colspec colname="col_1" colwidth="71.5275*"/>
+<colspec colname="col_2" colwidth="113.6025*"/>
+<colspec colname="col_3" colwidth="117.81*"/>
+<colspec colname="col_4" colwidth="117.81*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Delimiter</entry>
+<entry align="left" valign="top">TradeDoc</entry>
+<entry align="left" valign="top">Standards suggest</entry>
+<entry align="left" valign="top">Industry practice</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">&lt;tr&gt;</phrase></simpara></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>Unix newline
+<phrase role="title-ref">0A</phrase> hex, 10 dec</literallayout>
+</blockquote></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>any control char
+<phrase role="title-ref">1C</phrase> hex preferred</literallayout>
+</blockquote></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>return/linefeed
+<phrase role="title-ref">0D0A</phrase> hex, CR/LF</literallayout>
+</blockquote></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">&lt;gs&gt;</phrase></simpara></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>Unix backtick (`)
+<phrase role="title-ref">60</phrase> hex, 96 dec</literallayout>
+</blockquote></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>special or control
+<phrase role="title-ref">1D</phrase> hex preferred</literallayout>
+</blockquote></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>asterisk (*)
+tilde (~)</literallayout>
+</blockquote></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">&lt;us&gt;</phrase></simpara></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>Unix carat (^)
+<phrase role="title-ref">5E</phrase> hex, 94 dec</literallayout>
+</blockquote></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>special or control
+<phrase role="title-ref">1F</phrase> hex preferred</literallayout>
+</blockquote></entry>
+<entry align="left" valign="top"><blockquote>
+<literallayout>colon (:)</literallayout>
+</blockquote></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+<simpara>EDI data is exchanged in different ways, but always comes down to <literal>encoding</literal>.
+Specifically the <literal>backtick</literal> and <literal>carat</literal> symbols are not included in the EDI character set, and therefore are not present in data elements. Please see our section on <literal>Codecs</literal> for more information on the subject.</simpara>
+</section>
+</section>
+<section xml:id="data-elements">
+<title>Data Elements</title>
+<simpara>The data element is the smallest named unit of information in the
+standard. Data elements are identified as either simple or component. A
+data element which occurs within a composite data structure is
+identified as a component data element.</simpara>
+<simpara>A data element which is outside
+the boundaries of a composite structure is a simple data element.
+<literal>The distinction between simple and component elements is based on the
+placement of the element in the set and not on the attributes of the
+element</literal>.</simpara>
+<simpara>Each data element is assigned a unique reference identifier of from one
+to four digits. Data elements have three attributes: the type, the
+length minimum, and the length maximum. Data element types are as
+follows:</simpara>
+<informaltable frame="all" rowsep="1" colsep="1">
+<?dbhtml table-width="100%"?>
+<?dbfo table-width="100%"?>
+<?dblatex table-width="100%"?>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="89.25*"/>
+<colspec colname="col_2" colwidth="76.5*"/>
+<colspec colname="col_3" colwidth="259.25*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Type</entry>
+<entry align="left" valign="top">Code</entry>
+<entry align="left" valign="top">Data Element Type Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Numeric</simpara></entry>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">Nn</phrase></simpara></entry>
+<entry align="left" valign="top"><simpara>Numeric value with a predefined implied
+decimal point</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Decimal</simpara></entry>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">R</phrase></simpara></entry>
+<entry align="left" valign="top"><simpara>Numeric with an explicit decimal place</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Identifier</simpara></entry>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">ID</phrase></simpara></entry>
+<entry align="left" valign="top"><simpara>A unique coded value from a predetermined
+list</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>String</simpara></entry>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">AN</phrase></simpara></entry>
+<entry align="left" valign="top"><simpara>A sequence of basic or extended characters</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Date</simpara></entry>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">DT</phrase></simpara></entry>
+<entry align="left" valign="top"><simpara>A standard date in the format YYMMDD</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Time</simpara></entry>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">TM</phrase></simpara></entry>
+<entry align="left" valign="top"><simpara>A time in the format HHMMSSd&#8230;&#8203;d</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Binary</simpara></entry>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">B</phrase></simpara></entry>
+<entry align="left" valign="top"><simpara>Numeric sequence of binary octets</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Fixed String</simpara></entry>
+<entry align="left" valign="top"><simpara><phrase role="title-ref">FS</phrase></simpara></entry>
+<entry align="left" valign="top"><simpara>Space-padded sequence of basic or
+extended characters</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section xml:id="composite-data-structures">
+<title>Composite Data Structures</title>
+<simpara>The composite data structure is an intermediate unit of information in a
+segment. The definition of a composite data structure consists of two or
+more component data elements. In the actual data transmission the
+composite may consist of one or more component data elements. Adjacent
+component elements in a composite data structure are <literal>delimited</literal> by the
+component element separator <phrase role="title-ref">&lt;us&gt;</phrase>. Composite data
+structures are <literal>delimited</literal> from other adjacent elements in a segment by
+the data element separator <phrase role="title-ref">&lt;gs&gt;</phrase>.</simpara>
+<simpara>Each composite data structure has a unique four-character reference
+identifier. The identifiers for composite data structures which appear
+in control segments start with an S; a C is the first letter of
+composite identifiers which are used in data segments.</simpara>
+<simpara>A detail table defines the <literal>component data elements</literal> in a <literal>composite data
+structure</literal>. Each <literal>component</literal> referenced has a requirement and an ordinal
+sequence in the structure. In the actual data transmission omitted
+elements are indicated by including their <literal>delimiters</literal> to preserve this
+sequence, except for elements which are omitted at the end of the
+component data structure.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>component</simpara>
+</listitem>
+<listitem>
+<simpara>component data structure</simpara>
+</listitem>
+<listitem>
+<simpara>composite data structure</simpara>
+</listitem>
+<listitem>
+<simpara>delimiter</simpara>
+</listitem>
+<listitem>
+<simpara>segments</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="data-segment-structures">
+<title>Data Segment Structures</title>
+<simpara>The data segment is an intermediate unit of related information in a
+transaction set. Simple data elements and composite data structures are
+the data parts of the segment. Each segment in a transmission starts
+with the segment identifier, followed by at least one data element or
+component structure, and ending with a segment terminator
+<phrase role="title-ref">&lt;tr&gt;</phrase>.</simpara>
+<simpara>Each data segment has a unique two- or three-character identifier which
+also serves as a label for the segment in the data transmission. Segment
+labels are separated from the following data element by an element
+separator <phrase role="title-ref">&lt;gs&gt;</phrase>. The label is considered to be position
+zero of the segment, so that the first data element following the label
+is in position one.</simpara>
+<simpara>A detail table defines the sequence of simple data elements and
+composite data structures in a segment. Each unit referenced has a
+requirement and an ordinal sequence in the segment.</simpara>
+<warning>
+<simpara>===
+In the actual data
+transmission omitted elements are indicated by including their
+delimiters to preserve this sequence, except for elements which are
+omitted at the end of the segment.
+===</simpara>
+</warning>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="transaction-sets">
+<title>Transaction Sets</title>
+<simpara>The transaction set is a complete unit of information exchanged between
+trading partners, representing a business document. Each transaction
+starts with a header segment (ST) and ends with a trailer segment (SE).
+At least one data segment is required between the header segment and the
+trailer. Each segment in the transaction set ends with the segment
+terminator <phrase role="title-ref">&lt;tr&gt;</phrase>.</simpara>
+<simpara>The transaction set identifier uniquely identifies each transaction set.
+This identifier is the first data element of the transaction set header
+segment. The transaction set header and trailer segments contain a
+control number which must be identical for any given transaction.
+Transaction set control numbers should not repeat in the history of
+exchanges of the transaction set between two trading partners. The
+transaction set trailer segment also contains a count of the number of
+segments in the transaction including the ST and SE segments.</simpara>
+<simpara>The sequence of data segments in a transaction set definition is
+presented in detail tables for the set. Up to three tables may be used
+to represent transaction header information, repeating details, and a
+summary area. Each segment in a set has a requirement designator, a
+position in the set definition, and a maximum occurrence. An example set
+detail table is shown below:</simpara>
+<section xml:id="repeating">
+<title>Repeating</title>
+<simpara>Single data segments within a transaction set may repeat up to a
+specified maximum number of occurrences, as shown in the MaxUse column.
+The notation <phrase role="title-ref">&gt;1</phrase> is used to show that the number of repeats
+for a segment is unlimited. Groups of two or more related data segments
+may be repeated as a loop.</simpara>
+<important>
+<simpara>===
+Loops may be either unbounded, or bounded by
+loop start <literal>(LS)</literal> and loop end <literal>(LE)</literal> segments.
+===</simpara>
+</important>
+</section>
+<section xml:id="unbounded-loops">
+<title>Unbounded loops</title>
+<simpara>The start of an unbounded loop is marked by the occurrence of the first
+segment of the loop. The beginning segment of an unbounded loop shall
+not appear anywhere else in a loop. <literal>The requirement for a loop is
+implicitly the requirement of the loop&#8217;s first segment</literal>.</simpara>
+<section xml:id="designators">
+<title>Designators</title>
+<formalpara>
+<title>Requirement Segment Designator</title>
+<para>If the requirement designator for the first segment of a loop is mandatory,
+then the loop must appear at least once in the transaction set`. A loop
+may be repeated up to a specified maximum number of times. The notation
+<phrase role="title-ref">&gt;1</phrase> designates an unlimited repeat.</para>
+</formalpara>
+<simpara>A level entry indicates the nesting of loops, and the start of a loop
+structure is indicated by a loop label on the first segment of the loop.
+When <literal>unbounded loops are nested within loops</literal>, the <literal>inner loop shall not
+start at the same position as any outer loop</literal>. The inner loop shall not
+start with the same segment identifier as the start of any outer loop,
+nor may the inner loop contain a segment that is also the beginning
+segment of any outer loop in the same structure.</simpara>
+</section>
+</section>
+<section xml:id="bounded-loops">
+<title>Bounded loops</title>
+<simpara>The characteristics of unbounded loops also apply to bounded loops,
+except that bounded loops have no restriction on which segment begins
+the loop. For bounded loops, a unique loop identifier defined in the
+standard is used in the LS and LE segments to convey segment position or
+loop hierarchy, or both, within the transaction set.</simpara>
+</section>
+</section>
+<section xml:id="transmission">
+<title>Transmission Files</title>
+<simpara>A transmission consists of a sequence of interchanges in a stream which
+are all addressed to a specific trading partner (as when receiving) or
+all addressed from a specific partner (as when sending).</simpara>
+<simpara>The Sender and Receiver Identifiers in the ISA header of an interchange
+address the interchange envelope between partners. Therefore a
+transmission is analogous to a mail delivery to or a mail pickup from a
+mailbox.</simpara>
+<section xml:id="asc-x12-license">
+<title>ASC X12 License</title>
+<simpara>Content of ASC X12 standards is proprietary, and FreightTrust and Clearing Corporation makes no claim over its copyright, and only provides this for educational purposes only.</simpara>
+<bridgehead xml:id="disclaimer-copyright" renderas="sect2">Disclaimer &amp; Copyright</bridgehead>
+<simpara>This work is copyrighted under the <link xl:href="https://creativecommons.org/licenses/by-nc-nd/2.5/">Creative Commons NC-ND 2.5</link> License</simpara>
+<simpara><emphasis role="strong">You are free to</emphasis>: Share &amp; copy and redistribute the material in any medium or format, Under the following terms*:</simpara>
+<simpara><emphasis>Attribution</emphasis>: You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+* <emphasis>Non-Commercial</emphasis>: You may not use the material for commercial purposes.
+* <emphasis>No-Derivatives</emphasis>: If you remix, transform, or build upon the material, you may not distribute the modified material.
+* <emphasis>No additional restrictions</emphasis>: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+If you are seeking a Commerical license you may contact us at: <link xl:href="mailto:admin@freighttrust.com">admin@freighttrust.com</link></simpara>
+</section>
+</section>
+</article>
